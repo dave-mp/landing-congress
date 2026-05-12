@@ -1,0 +1,71 @@
+/* Initial hidden states for scroll-animated elements */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Reduced motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__particles *,
+  .hero__dna,
+  .hero__pulse-path,
+  .hero__scroll-line {
+    animation: none !important;
+  }
+
+  .particle {
+    opacity: 0.3 !important;
+    transform: none !important;
+  }
+}
+
+/* 3D tilt context */
+.speaker-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Hero headline chars — wrapped by splitText */
+.hero__char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(60%) rotateX(-30deg);
+  transform-origin: center bottom;
+  backface-visibility: hidden;
+}
+
+/* Program SVG timeline line */
+.program__timeline-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+/* Program day blocks: managed by program.js, not the generic class */
+.program__day {
+  opacity: 0;
+}
+
+.program__day-dot {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Smooth color transitions for theme switch */
+body,
+.site-header,
+.topic-card,
+.workshop-card,
+.speaker-card,
+.form__input,
+.form__select,
+.form__textarea,
+.btn {
+  transition: background-color var(--duration-normal) var(--ease-out),
+              border-color var(--duration-normal) var(--ease-out),
+              color var(--duration-normal) var(--ease-out);
+}
