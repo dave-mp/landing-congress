@@ -3,7 +3,6 @@ import { animate, createTimeline, stagger } from 'animejs';
 export function initHeroAnimations() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Eyebrow fade in immediately
   animate('.hero__eyebrow', {
     opacity: [0, 1],
     translateY: [10, 0],
@@ -13,20 +12,27 @@ export function initHeroAnimations() {
   });
 
   if (prefersReducedMotion) {
-    // Reveal all hero text immediately
     document.querySelectorAll('.hero__char').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
+    const accentLine = document.querySelector('.hero__headline-line--accent');
+    if (accentLine) { accentLine.style.opacity = '1'; accentLine.style.transform = 'none'; }
     animate('.hero__meta, .hero__actions', { opacity: [0, 1], duration: 400 });
     return;
   }
 
-  // Split each headline line into individual character spans
   const lines = document.querySelectorAll('.hero__headline-line');
   const allChars = [];
 
   lines.forEach(line => {
+    // Don't character-split the gradient line: background-clip:text breaks on child spans
+    if (line.classList.contains('hero__headline-line--accent')) {
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(50px)';
+      return;
+    }
+
     const text = line.textContent;
     line.textContent = '';
     text.split('').forEach(char => {
@@ -40,7 +46,7 @@ export function initHeroAnimations() {
 
   const tl = createTimeline({ defaults: { ease: 'outExpo' } });
 
-  // Staggered character reveal
+  // Other lines: character stagger
   tl.add(allChars, {
     opacity: [0, 1],
     translateY: ['60%', '0%'],
@@ -49,7 +55,14 @@ export function initHeroAnimations() {
     delay: stagger(22, { from: 'first' }),
   }, 300);
 
-  // Meta + actions fade in after headline
+  // Accent line: slide up as a whole (preserves gradient)
+  tl.add('.hero__headline-line--accent', {
+    opacity: [0, 1],
+    translateY: ['50px', '0px'],
+    duration: 750,
+    ease: 'outExpo',
+  }, 480);
+
   tl.add('.hero__meta', {
     opacity: [0, 1],
     translateY: [16, 0],
@@ -64,7 +77,6 @@ export function initHeroAnimations() {
     ease: 'outQuart',
   }, '-=400');
 
-  // Scroll cue: looping pulse line
   animate('.hero__scroll-line', {
     scaleY: [0, 1],
     opacity: [0, 0.7, 0],
@@ -75,7 +87,6 @@ export function initHeroAnimations() {
     transformOrigin: 'top center',
   });
 
-  // Floating hex particles: infinite gentle float
   const particles = document.querySelectorAll('.particle');
   particles.forEach((p, i) => {
     const dy = ((i % 3) - 1) * 14 + (Math.random() * 8 - 4);

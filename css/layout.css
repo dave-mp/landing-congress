@@ -9,6 +9,12 @@
   padding-block: var(--section-pad-y);
 }
 
+/* Ensure content sits above fixed background orbs */
+main {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Site header ── */
 .site-header {
   position: sticky;
