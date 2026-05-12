@@ -35,12 +35,18 @@
 }
 
 /* Light-specific component overrides */
-:root[data-theme="light"] .hero__bg-shapes {
-  opacity: 0.4;
-}
-
 :root[data-theme="light"] .hero {
   background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 50%, #ede9fe 100%);
+}
+
+:root[data-theme="light"] .hero__dna   { opacity: 0.3; }
+:root[data-theme="light"] .hero__pulse { opacity: 0.25; }
+:root[data-theme="light"] .particle    { opacity: 0.25; }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .hero__dna   { opacity: 0.3; }
+  :root:not([data-theme="dark"]) .hero__pulse { opacity: 0.25; }
+  :root:not([data-theme="dark"]) .particle    { opacity: 0.25; }
 }
 
 :root[data-theme="light"] .topic-card {
