@@ -313,6 +313,15 @@
   background-clip: text;
 }
 
+.hero__tagline {
+  max-width: 56ch;
+  margin-bottom: var(--space-8);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  opacity: 0;
+}
+
 .hero__meta {
   display: flex;
   flex-wrap: wrap;
@@ -397,6 +406,48 @@
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-8);
   font-size: var(--font-size-md);
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.about__stat {
+  padding: var(--space-4);
+  background-color: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.about__stat-value {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about__stat-label {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.about__audience-title {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
 }
 
 .about__audience-list {
@@ -532,13 +583,21 @@
 .program__timeline::before {
   content: '';
   position: absolute;
-  left: 0;
+  /* Matches .program__timeline's own padding-left so the rail runs through
+     the day dots, which sit at the left edge of each .program__day. */
+  left: var(--space-8);
   top: 0;
   bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, var(--color-accent), var(--color-accent-3));
   opacity: 0.4;
   border-radius: var(--radius-full);
+}
+
+@media (min-width: 768px) {
+  .program__timeline::before {
+    left: var(--space-16);
+  }
 }
 
 .program__day {
@@ -553,9 +612,9 @@
 
 .program__day-marker {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-4);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-5);
 }
 
 .program__day-dot {
@@ -581,6 +640,13 @@
   color: var(--color-text-primary);
 }
 
+.program__day-sub {
+  margin-top: var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-2);
+}
+
 .program__events {
   display: flex;
   flex-direction: column;
@@ -588,26 +654,81 @@
 }
 
 .program__event {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
   background-color: var(--color-bg-elevated);
   border-radius: var(--radius-md);
   border-left: 3px solid var(--color-accent);
+}
+
+@media (min-width: 640px) {
+  .program__event {
+    grid-template-columns: 7.5rem 1fr;
+    gap: var(--space-5);
+  }
+}
+
+.program__event-time {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.program__event-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.program__event-speaker {
+  margin-top: var(--space-2);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
   color: var(--color-text-secondary);
+}
+
+.program__event-speaker-name {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* Breaks and logistics read quieter than the scientific sessions */
+.program__event--break,
+.program__event--logistic {
+  background-color: transparent;
+  border-left-style: dashed;
+  border-left-color: var(--color-border-strong);
+}
+
+.program__event--break .program__event-time,
+.program__event--logistic .program__event-time {
+  color: var(--color-text-muted);
+}
+
+.program__event--break .program__event-title,
+.program__event--logistic .program__event-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
 }
 
 /* ════════════════════════════════════════
-   WORKSHOP CARDS
+   VENUE & MUESTRA COMERCIAL
    ════════════════════════════════════════ */
-.workshops {
-  background-color: var(--color-bg-base);
+.venue {
+  background-color: var(--color-bg-surface);
 }
 
-.workshop-card {
+.venue-card {
   background-color: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
@@ -620,13 +741,13 @@
               transform var(--duration-normal) var(--ease-out);
 }
 
-.workshop-card:hover {
+.venue-card:hover {
   border-color: var(--color-accent-2);
   box-shadow: 0 0 24px rgba(6, 182, 212, 0.15);
   transform: translateY(-3px);
 }
 
-.workshop-card__badge {
+.venue-card__badge {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
   background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15));
@@ -640,13 +761,13 @@
   width: fit-content;
 }
 
-.workshop-card__heading {
+.venue-card__heading {
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
 }
 
-.workshop-card__body {
+.venue-card__body {
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
   line-height: var(--line-height-relaxed);
@@ -657,7 +778,7 @@
    SPEAKER CARDS
    ════════════════════════════════════════ */
 .speakers {
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-bg-base);
 }
 
 .speaker-card {
@@ -673,6 +794,27 @@
   overflow: hidden;
 }
 
+.speaker-card__avatar {
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-tight);
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-3));
+  user-select: none;
+}
+
+.speaker-card__avatar--v2 {
+  background: linear-gradient(135deg, var(--color-accent-2), var(--color-accent));
+}
+
+.speaker-card__avatar--v3 {
+  background: linear-gradient(135deg, var(--color-accent-3), var(--color-accent-2));
+}
+
 .speaker-card__info {
   padding: var(--space-4);
 }
@@ -686,7 +828,15 @@
 
 .speaker-card__role {
   font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent-2);
+  margin-bottom: var(--space-1);
+}
+
+.speaker-card__org {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-secondary);
 }
 
 /* ════════════════════════════════════════
@@ -821,6 +971,13 @@
   background-color: var(--color-bg-surface);
 }
 
+.sponsors__intro {
+  max-width: 62ch;
+  margin-top: calc(-1 * var(--space-2));
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
 .sponsors__tier-label {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
@@ -854,6 +1011,11 @@
   color: var(--color-text-secondary);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-8);
+}
+
+.contact__pending {
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 .contact__address {
@@ -898,6 +1060,14 @@
 
 .site-footer__nav a:hover {
   color: var(--color-text-primary);
+}
+
+.site-footer__sub {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-muted);
 }
 
 .site-footer__legal {

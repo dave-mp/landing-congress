@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Congreso de Enfermedades Infecciosas, Cuidado Crítico y Hemodinamia. Evento científico de vanguardia para profesionales de la salud." />
-  <title>Congreso · Enfermedades Infecciosas | Cuidado Crítico | Hemodinamia</title>
+  <meta name="description" content="1er Summit Internacional en Enfermedades Infecciosas &amp; Medicina Crítica. 30 y 31 de octubre de 2026, Auditorio Torreón, Universidad de San Buenaventura Cartagena. Integrando el laboratorio clínico, la medicina de precisión y la salud pública." />
+  <title>1er Summit Internacional en Enfermedades Infecciosas &amp; Medicina Crítica · Cartagena</title>
 
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/tokens.css" />
@@ -45,48 +45,41 @@
         <circle cx="378" cy="200" r="8" fill="currentColor"/>
         <circle cx="22"  cy="200" r="5" fill="currentColor" opacity="0.5"/>
       </g>
-      <!-- Inner orbit -->
-      <ellipse cx="200" cy="200" rx="110" ry="36" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(90 200 200)"/>
-      <circle cx="200" cy="164" r="5" fill="currentColor" opacity="0.6"/>
     </svg>
   </div>
 
   <div class="orb-wrap orb-wrap--b" aria-hidden="true">
-    <svg class="orb-b" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="140" cy="140" r="14" fill="currentColor" opacity="0.7"/>
-      <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
-      <circle cx="260" cy="140" r="6" fill="currentColor"/>
-      <g transform="rotate(72 140 140)">
-        <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="260" cy="140" r="6" fill="currentColor"/>
+    <svg class="orb-b" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hexagonal molecular lattice -->
+      <g stroke="currentColor" stroke-width="2" fill="none">
+        <polygon points="100,20 150,50 150,110 100,140 50,110 50,50"/>
+        <polygon points="100,60 125,75 125,105 100,120 75,105 75,75"/>
+        <line x1="100" y1="20" x2="100" y2="60"/>
+        <line x1="150" y1="50" x2="125" y2="75"/>
+        <line x1="150" y1="110" x2="125" y2="105"/>
+        <line x1="100" y1="140" x2="100" y2="120"/>
+        <line x1="50" y1="110" x2="75" y2="105"/>
+        <line x1="50" y1="50" x2="75" y2="75"/>
       </g>
-      <g transform="rotate(144 140 140)">
-        <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="260" cy="140" r="6" fill="currentColor"/>
+      <g fill="currentColor">
+        <circle cx="100" cy="20"  r="6"/>
+        <circle cx="150" cy="50"  r="6"/>
+        <circle cx="150" cy="110" r="6"/>
+        <circle cx="100" cy="140" r="6"/>
+        <circle cx="50"  cy="110" r="6"/>
+        <circle cx="50"  cy="50"  r="6"/>
       </g>
     </svg>
   </div>
-
-  <!-- Theme init: read localStorage before first paint to avoid flash -->
-  <script>
-    (function () {
-      var saved = localStorage.getItem('theme');
-      if (saved) {
-        document.documentElement.dataset.theme = saved;
-      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        document.documentElement.dataset.theme = 'light';
-      }
-    })();
-  </script>
 
   <!-- ══════════════════════════════════════════
        HEADER / NAV
        ══════════════════════════════════════════ -->
   <header class="site-header" role="banner">
     <nav class="nav container" aria-label="Navegación principal">
-      <a class="nav__logo" href="#inicio" aria-label="Inicio del congreso">
-        <span class="nav__logo-mark" aria-hidden="true">CI</span>
-        <span class="nav__logo-text">Congreso Infecciosas</span>
+      <a class="nav__logo" href="#inicio" aria-label="Inicio del Summit">
+        <span class="nav__logo-mark" aria-hidden="true">SI</span>
+        <span class="nav__logo-text">1er Summit Internacional</span>
       </a>
 
       <button class="nav__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links">
@@ -97,10 +90,10 @@
 
       <ul class="nav__links" id="nav-links" role="list">
         <li><a class="nav__link" href="#sobre">Sobre</a></li>
-        <li><a class="nav__link" href="#temas">Temas</a></li>
+        <li><a class="nav__link" href="#temas">Ejes</a></li>
         <li><a class="nav__link" href="#programa">Programa</a></li>
-        <li><a class="nav__link" href="#talleres">Talleres</a></li>
         <li><a class="nav__link" href="#ponentes">Ponentes</a></li>
+        <li><a class="nav__link" href="#sede">Sede</a></li>
         <li><a class="nav__link" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="nav__link" href="#contacto">Contacto</a></li>
         <li><a class="btn btn--accent nav__cta" href="#registro">Pre-registro</a></li>
@@ -124,7 +117,7 @@
     <!-- ══════════════════════════════════════════
          HERO
          ══════════════════════════════════════════ -->
-    <section class="hero" id="inicio" aria-label="Presentación del congreso">
+    <section class="hero" id="inicio" aria-label="Presentación del Summit">
 
       <!-- Decorative background shapes -->
       <div class="hero__bg-shapes" aria-hidden="true">
@@ -171,21 +164,23 @@
       </div>
 
       <div class="hero__content container">
-        <p class="hero__eyebrow">Próximamente</p>
+        <p class="hero__eyebrow">1er Summit Internacional · Cartagena de Indias</p>
         <h1 class="hero__headline">
-          <span class="hero__headline-line">Congreso de</span>
-          <span class="hero__headline-line hero__headline-line--accent">Enfermedades Infecciosas,</span>
-          <span class="hero__headline-line">Cuidado Crítico</span>
-          <span class="hero__headline-line">y Hemodinamia</span>
+          <span class="hero__headline-line">Enfermedades</span>
+          <span class="hero__headline-line hero__headline-line--accent">Infecciosas &amp;</span>
+          <span class="hero__headline-line">Medicina Crítica</span>
         </h1>
+        <p class="hero__tagline">
+          Integrando el laboratorio clínico, la medicina de precisión y la salud pública.
+        </p>
         <div class="hero__meta">
           <p class="hero__date">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            [Insertar Fechas]
+            30 y 31 de octubre de 2026
           </p>
           <p class="hero__location">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            [Ciudad, Sede / Auditorio]
+            Auditorio Torreón · Universidad de San Buenaventura Cartagena
           </p>
         </div>
         <div class="hero__actions">
@@ -200,28 +195,54 @@
     </section>
 
     <!-- ══════════════════════════════════════════
-         SOBRE EL CONGRESO
+         SOBRE EL SUMMIT
          ══════════════════════════════════════════ -->
     <section class="about section" id="sobre" aria-labelledby="about-heading">
       <div class="container about__grid">
 
         <div class="about__text animate-on-scroll">
-          <span class="section-label">Sobre el Congreso</span>
-          <h2 class="section-heading" id="about-heading">Un espacio de vanguardia científica</h2>
+          <span class="section-label">Sobre el Summit</span>
+          <h2 class="section-heading" id="about-heading">Un puente entre el laboratorio, la UCI y la salud pública</h2>
           <p class="about__body">
-            Reunimos a los principales actores de las ciencias de la salud en torno a los avances
-            más relevantes de la infectología, el cuidado crítico y la hemodinámica. Un espacio
-            diseñado para la actualización, el debate científico y la construcción de redes
-            académicas y profesionales.
+            El <strong>1er Summit Internacional en Enfermedades Infecciosas &amp; Medicina Crítica</strong>
+            reúne durante dos jornadas a investigadores, clínicos y autoridades sanitarias
+            para conectar tres mundos que suelen trabajar por separado: el resultado del
+            laboratorio clínico, la decisión terapéutica al lado de la cama y la vigilancia
+            epidemiológica del territorio.
           </p>
+          <p class="about__body">
+            Doce conferencias con ponentes nacionales e internacionales abordan el Código Sepsis,
+            la resistencia antimicrobiana en Cartagena, los biomarcadores de precisión en la UCI,
+            las arbovirosis emergentes y el enfoque One Health, con muestra comercial permanente
+            durante las pausas.
+          </p>
+
+          <ul class="about__stats" role="list" aria-label="Cifras del Summit">
+            <li class="about__stat">
+              <span class="about__stat-value">2</span>
+              <span class="about__stat-label">Jornadas académicas</span>
+            </li>
+            <li class="about__stat">
+              <span class="about__stat-value">12</span>
+              <span class="about__stat-label">Conferencias</span>
+            </li>
+            <li class="about__stat">
+              <span class="about__stat-value">130</span>
+              <span class="about__stat-label">Cupos disponibles</span>
+            </li>
+          </ul>
+
+          <h3 class="about__audience-title">Dirigido a</h3>
           <ul class="about__audience-list" role="list" aria-label="Público objetivo">
-            <li class="about__audience-item">Intensivistas</li>
             <li class="about__audience-item">Infectólogos</li>
-            <li class="about__audience-item">Cardiólogos</li>
-            <li class="about__audience-item">Médicos generales</li>
+            <li class="about__audience-item">Intensivistas</li>
+            <li class="about__audience-item">Internistas</li>
+            <li class="about__audience-item">Pediatras</li>
+            <li class="about__audience-item">Bacteriólogos y microbiólogos</li>
+            <li class="about__audience-item">Epidemiología y salud pública</li>
+            <li class="about__audience-item">Químicos farmacéuticos</li>
             <li class="about__audience-item">Enfermería</li>
-            <li class="about__audience-item">Fisioterapeutas</li>
-            <li class="about__audience-item">Bacteriólogos</li>
+            <li class="about__audience-item">Médicos generales</li>
             <li class="about__audience-item">Estudiantes de C. Salud</li>
           </ul>
         </div>
@@ -229,9 +250,9 @@
         <div class="about__venue-image animate-on-scroll">
           <figure class="media-placeholder media-placeholder--venue">
             <div class="media-placeholder__inner">
-              <span class="media-placeholder__label">Foto de Sede / Auditorio</span>
+              <span class="media-placeholder__label">Foto — Auditorio Torreón, USB Cartagena</span>
             </div>
-            <figcaption class="sr-only">Fotografía del auditorio principal del congreso</figcaption>
+            <figcaption class="sr-only">Fotografía del Auditorio Torreón de la Universidad de San Buenaventura Cartagena</figcaption>
           </figure>
           <div class="about__hex-deco" aria-hidden="true"></div>
         </div>
@@ -245,22 +266,24 @@
     <section class="topics section" id="temas" aria-labelledby="topics-heading">
       <div class="container">
         <span class="section-label">Ejes Temáticos</span>
-        <h2 class="section-heading" id="topics-heading">Tres pilares del conocimiento</h2>
+        <h2 class="section-heading" id="topics-heading">Tres pilares, una sola conversación</h2>
 
         <div class="topics__grid">
 
           <article class="topic-card animate-on-scroll">
             <div class="topic-card__icon-wrap" aria-hidden="true">
-              <!-- Bacteria / virus icon -->
+              <!-- Flask / laboratory icon -->
               <svg class="topic-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.2-6.8-2.1 2.1M7.3 16.7l-2.1 2.1m0-11.5 2.1 2.1m9.4 9.4 2.1 2.1"/>
+                <path d="M9 2h6M10 2v6.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.5V2"/>
+                <path d="M7 15h10"/>
+                <circle cx="10.5" cy="17.5" r="0.8" fill="currentColor" stroke="none"/>
+                <circle cx="13.5" cy="18.5" r="0.6" fill="currentColor" stroke="none"/>
               </svg>
             </div>
-            <h3 class="topic-card__heading">Enfermedades Infecciosas</h3>
+            <h3 class="topic-card__heading">Laboratorio Clínico</h3>
             <p class="topic-card__body">
-              Resistencia antimicrobiana, enfermedades emergentes, infecciones en UCI
-              y actualización en microbiología clínica.
+              Microbiología clínica, susceptibilidad antimicrobiana y falla de barreras en sepsis.
+              Del resultado del laboratorio a la decisión terapéutica en el paciente crítico.
             </p>
           </article>
 
@@ -273,24 +296,26 @@
                 <polyline points="6,9 8,13 11,7 13,11 16,9"/>
               </svg>
             </div>
-            <h3 class="topic-card__heading">Cuidado Crítico</h3>
+            <h3 class="topic-card__heading">Medicina de Precisión</h3>
             <p class="topic-card__body">
-              Ventilación mecánica avanzada, SDRA, sepsis, neuro-UCI y casos clínicos
-              asistidos con inteligencia artificial.
+              Biomarcadores en la UCI, inmunopatogénesis, desescalamiento antimicrobiano seguro
+              y la convergencia entre semiología, POCUS e inteligencia artificial.
             </p>
           </article>
 
           <article class="topic-card animate-on-scroll">
             <div class="topic-card__icon-wrap" aria-hidden="true">
-              <!-- Heart / pulse icon -->
+              <!-- Globe / public health icon -->
               <svg class="topic-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M3 12h18"/>
+                <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/>
               </svg>
             </div>
-            <h3 class="topic-card__heading">Hemodinamia</h3>
+            <h3 class="topic-card__heading">Salud Pública</h3>
             <p class="topic-card__body">
-              Ecocardiografía básica y avanzada, acceso vascular, monitoreo
-              hemodinámico invasivo y falla ventricular.
+              Código Sepsis como política pública, vigilancia de la resistencia antimicrobiana
+              en Cartagena, arbovirosis emergentes y enfoque One Health.
             </p>
           </article>
 
@@ -304,118 +329,252 @@
     <section class="program section" id="programa" aria-labelledby="program-heading">
       <div class="container">
         <span class="section-label">Agenda Científica</span>
-        <h2 class="section-heading" id="program-heading">Programa del Congreso</h2>
+        <h2 class="section-heading" id="program-heading">Programa Académico</h2>
 
         <div class="program__timeline">
 
-          <!-- Día 0 -->
+          <!-- Viernes 30 · Mañana -->
           <div class="program__day">
             <div class="program__day-marker">
               <span class="program__day-dot" aria-hidden="true"></span>
-              <h3 class="program__day-label">Día 0 — Pre-congreso</h3>
+              <div class="program__day-titles">
+                <h3 class="program__day-label">Viernes 30 de octubre</h3>
+                <p class="program__day-sub">Jornada Mañana · 8:00 a.m. – 12:00 m.</p>
+              </div>
             </div>
             <ul class="program__events" role="list">
-              <li class="program__event">Taller: Ventilación Mecánica y SDRA</li>
-              <li class="program__event">Taller: Ecocardiografía Básica / Avanzada</li>
-              <li class="program__event">Taller: Acceso Vascular y Hemodinámica</li>
-              <li class="program__event">Taller: Programa PROA</li>
+
+              <li class="program__event program__event--logistic">
+                <span class="program__event-time">08:00 – 08:30</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Inscripciones</h4>
+                </div>
+              </li>
+
+              <li class="program__event program__event--logistic">
+                <span class="program__event-time">08:30 – 08:50</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Actos protocolarios y apertura del Summit</h4>
+                  <p class="program__event-speaker">
+                    Intervención del Decano de la Facultad de Ciencias de la Salud
+                    y del Secretario de Salud Distrital.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">08:50 – 09:30</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">El Código Sepsis como política de salud pública: reduciendo la mortalidad desde la detección precoz</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Juan Pablo Betancur Otálvaro</span>
+                    Médico pediatra. Especialista en enfermedades infecciosas. Referente departamental PROA.
+                    Asistente técnico, Instituto Nacional de Salud (INS).
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">09:30 – 10:10</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Cartagena de Indias ante la resistencia antimicrobiana: una mirada desde la vigilancia y la salud pública distrital</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Reyna María Ayola Cerro</span>
+                    Odontóloga. Especialista en gerencia en salud. MSc en Epidemiología.
+                    Referente de IAAS del Programa de Vigilancia en Salud Pública, DADIS.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event program__event--break">
+                <span class="program__event-time">10:10 – 10:40</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Pausa — Café y Muestra Comercial</h4>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">10:40 – 11:20</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Desafíos terapéuticos ante la falla de barreras en casos de sepsis en pacientes críticos</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Germán Esparza</span>
+                    Bacteriólogo, microbiólogo clínico. Miembro del subcomité de susceptibilidad
+                    antimicrobiana del Clinical and Laboratory Standards Institute (CLSI), Estados Unidos.
+                    QUALITY / PROASECAL.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">11:20 – 12:00</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Implementación de biomarcadores de precisión en la UCI: del laboratorio a la clínica</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Andrés Solano</span>
+                    Médico intensivista. Fundación Santa Fe de Bogotá.
+                    Clínica Serena del Mar, Cartagena.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event program__event--break">
+                <span class="program__event-time">12:00 – 14:00</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Almuerzo libre</h4>
+                </div>
+              </li>
+
             </ul>
           </div>
 
-          <!-- Día 1 -->
+          <!-- Viernes 30 · Tarde -->
           <div class="program__day">
             <div class="program__day-marker">
               <span class="program__day-dot" aria-hidden="true"></span>
-              <h3 class="program__day-label">Día 1 — Fronteras en Enfermedades Infecciosas</h3>
+              <div class="program__day-titles">
+                <h3 class="program__day-label">Viernes 30 de octubre</h3>
+                <p class="program__day-sub">Jornada Tarde · 2:00 p.m. – 5:00 p.m.</p>
+              </div>
             </div>
             <ul class="program__events" role="list">
-              <li class="program__event">Conferencia Inaugural: Desafíos globales en infectología</li>
-              <li class="program__event">Resistencia antimicrobiana en UCI</li>
-              <li class="program__event">Panel de discusión: Enfermedades emergentes</li>
-              <li class="program__event">Presentaciones orales de investigación</li>
+
+              <li class="program__event">
+                <span class="program__event-time">14:00 – 14:40</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Seroprevalencia, factores de riesgo, percepción comunitaria y vigilancia epidemiológica de virus Oropouche (OROV) en un municipio de Bolívar</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Eder Cano Pérez</span>
+                    Biólogo. Magíster en Genética. Estudiante doctoral en Medicina Tropical,
+                    Universidad de Cartagena.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">14:40 – 15:20</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title"><em>Aspergillus fumigatus</em>: del espectro alérgico a la enfermedad invasiva</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Andrés Sánchez Caraballo</span>
+                    Biólogo. MSc en Inmunología. Doctorando en Ciencias Farmacéuticas.
+                    Docente del Programa de Medicina, UNINÚÑEZ.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">15:20 – 16:00</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Virus Nipah y enfoque One Health: vigilancia, diagnóstico y respuesta en salud pública</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Bárbara Julia Arroyo Salgado</span>
+                    Bacterióloga. Magíster en microbiología clínica. PhD en Ciencias Biomédicas.
+                    Universidad de Cartagena.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event program__event--break">
+                <span class="program__event-time">16:00 – 17:00</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Pausa — Café y Muestra Comercial</h4>
+                </div>
+              </li>
+
             </ul>
           </div>
 
-          <!-- Día 2 -->
-          <div class="program__day">
-            <div class="program__day-marker">
-              <span class="program__day-dot" aria-hidden="true"></span>
-              <h3 class="program__day-label">Día 2 — Cuidado Crítico y Hemodinámica Avanzada</h3>
-            </div>
-            <ul class="program__events" role="list">
-              <li class="program__event">Sesión desayuno: Sepsis — actualización y controversias</li>
-              <li class="program__event">Módulo: Falla ventricular en UCI</li>
-              <li class="program__event">Simposio: Neuro-UCI</li>
-              <li class="program__event">Casos clínicos interactivos asistidos por IA</li>
-              <li class="program__event">Presentaciones de investigación</li>
-            </ul>
-          </div>
-
-          <!-- Cierre -->
+          <!-- Sábado 31 · Jornada única -->
           <div class="program__day">
             <div class="program__day-marker">
               <span class="program__day-dot program__day-dot--final" aria-hidden="true"></span>
-              <h3 class="program__day-label">Cierre — Premiación y Clausura</h3>
+              <div class="program__day-titles">
+                <h3 class="program__day-label">Sábado 31 de octubre</h3>
+                <p class="program__day-sub">Jornada Única · 8:00 a.m. – 12:20 m.</p>
+              </div>
             </div>
             <ul class="program__events" role="list">
-              <li class="program__event">Premiación de mejores trabajos de investigación</li>
-              <li class="program__event">Ceremonia de clausura</li>
+
+              <li class="program__event">
+                <span class="program__event-time">08:00 – 08:40</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Inmunomodulación y evasión de <em>Leishmania</em></h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Marlón Múnera Gómez</span>
+                    Biólogo. Magíster en inmunología. PhD en Ciencias Biomédicas.
+                    Docente del Programa de Medicina, UNINÚÑEZ.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">08:40 – 09:20</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Patogénesis asociada a la fuga masiva de plasma durante la infección por dengue y el desarrollo de dengue severo</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Henry Puerta Guardo</span>
+                    Bacteriólogo. MSc en Microbiología y biología celular. PhD en Infectómica y
+                    patogénesis molecular. Fellow posdoctoral en patogénesis viral.
+                    Universidad Autónoma de Yucatán, México.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event program__event--break">
+                <span class="program__event-time">09:20 – 09:50</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Pausa — Café y Muestra Comercial</h4>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">09:50 – 10:30</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Falla cardiaca en atención primaria</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Juan Camilo García Domínguez</span>
+                    Cardiólogo – Ecocardiografista. Radiólogos Asociados – Clínica Iberoamérica.
+                    BIOGUARD.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">10:30 – 11:10</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Implementación del PROA en la UCI: seguridad del paciente y desescalamiento seguro</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Jorge Iván Marín Uribe</span>
+                    MSc en Microbiología Clínica. MSc en Ciencias Médicas, mención infecciones
+                    intrahospitalarias y epidemiología hospitalaria. Doctorando en Enfermedades
+                    Infecciosas. Clínica Santillana, Manizales.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event">
+                <span class="program__event-time">11:10 – 11:50</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Del estetoscopio al modo Cyborg: convergencia entre la semiología, el POCUS y la inteligencia artificial</h4>
+                  <p class="program__event-speaker">
+                    <span class="program__event-speaker-name">Armando Cabrera González</span>
+                    Especialista en Medicina Interna. Docente de cátedra de la Facultad de Medicina,
+                    Universidad de Cartagena. Fundador y director del Curso OPES PRE-RESIDENTES.
+                  </p>
+                </div>
+              </li>
+
+              <li class="program__event program__event--logistic">
+                <span class="program__event-time">11:50 – 12:20</span>
+                <div class="program__event-detail">
+                  <h4 class="program__event-title">Clausura y actividad cultural</h4>
+                  <p class="program__event-speaker">Unidad de Bienestar, Universidad de San Buenaventura.</p>
+                </div>
+              </li>
+
             </ul>
           </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-         TALLERES PRE-CONGRESO
-         ══════════════════════════════════════════ -->
-    <section class="workshops section" id="talleres" aria-labelledby="workshops-heading">
-      <div class="container">
-        <span class="section-label">Pre-congreso</span>
-        <h2 class="section-heading" id="workshops-heading">Talleres Prácticos</h2>
-
-        <div class="workshops__grid">
-
-          <article class="workshop-card animate-on-scroll">
-            <div class="workshop-card__badge">Taller 1</div>
-            <h3 class="workshop-card__heading">Ventilación Mecánica y SDRA</h3>
-            <p class="workshop-card__body">
-              Manejo avanzado del paciente ventilado, estrategias de protección pulmonar
-              y abordaje del síndrome de distrés respiratorio agudo.
-            </p>
-            <a class="btn btn--outline btn--sm" href="#registro">Inscribirse</a>
-          </article>
-
-          <article class="workshop-card animate-on-scroll">
-            <div class="workshop-card__badge">Taller 2</div>
-            <h3 class="workshop-card__heading">Ecocardiografía Básica / Avanzada</h3>
-            <p class="workshop-card__body">
-              Evaluación ecográfica del corazón en el paciente crítico. Desde los
-              fundamentos hasta la aplicación avanzada en cuidado intensivo.
-            </p>
-            <a class="btn btn--outline btn--sm" href="#registro">Inscribirse</a>
-          </article>
-
-          <article class="workshop-card animate-on-scroll">
-            <div class="workshop-card__badge">Taller 3</div>
-            <h3 class="workshop-card__heading">Acceso Vascular y Hemodinámica</h3>
-            <p class="workshop-card__body">
-              Técnicas de acceso vascular central y periférico, monitorización
-              hemodinámica invasiva y no invasiva en UCI.
-            </p>
-            <a class="btn btn--outline btn--sm" href="#registro">Inscribirse</a>
-          </article>
-
-          <article class="workshop-card animate-on-scroll">
-            <div class="workshop-card__badge">Taller 4</div>
-            <h3 class="workshop-card__heading">Programa PROA</h3>
-            <p class="workshop-card__body">
-              Programa de optimización del uso de antimicrobianos. Fundamentos,
-              implementación hospitalaria y casos prácticos.
-            </p>
-            <a class="btn btn--outline btn--sm" href="#registro">Inscribirse</a>
-          </article>
 
         </div>
       </div>
@@ -433,115 +592,176 @@
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-                <figcaption class="sr-only">Fotografía del ponente</figcaption>
-              </figure>
+              <div class="speaker-card__avatar" aria-hidden="true">JB</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Juan Pablo Betancur Otálvaro</h3>
+              <p class="speaker-card__role">Médico pediatra · Enfermedades infecciosas</p>
+              <p class="speaker-card__org">Referente departamental PROA · Instituto Nacional de Salud (INS)</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">RA</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Reyna María Ayola Cerro</h3>
+              <p class="speaker-card__role">Odontóloga · MSc en Epidemiología</p>
+              <p class="speaker-card__org">Referente de IAAS, Vigilancia en Salud Pública · DADIS</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">GE</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Germán Esparza</h3>
+              <p class="speaker-card__role">Bacteriólogo · Microbiólogo clínico</p>
+              <p class="speaker-card__org">Subcomité de susceptibilidad antimicrobiana, CLSI · QUALITY / PROASECAL</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar" aria-hidden="true">AS</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Andrés Solano</h3>
+              <p class="speaker-card__role">Médico intensivista</p>
+              <p class="speaker-card__org">Fundación Santa Fe de Bogotá · Clínica Serena del Mar, Cartagena</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">EC</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Eder Cano Pérez</h3>
+              <p class="speaker-card__role">Biólogo · MSc en Genética</p>
+              <p class="speaker-card__org">Doctorando en Medicina Tropical · Universidad de Cartagena</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">AC</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Andrés Sánchez Caraballo</h3>
+              <p class="speaker-card__role">Biólogo · MSc en Inmunología</p>
+              <p class="speaker-card__org">Doctorando en Ciencias Farmacéuticas · Docente de Medicina, UNINÚÑEZ</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar" aria-hidden="true">BA</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Bárbara Julia Arroyo Salgado</h3>
+              <p class="speaker-card__role">Bacterióloga · MSc en Microbiología clínica</p>
+              <p class="speaker-card__org">PhD en Ciencias Biomédicas · Universidad de Cartagena</p>
             </div>
           </article>
 
           <article class="speaker-card animate-on-scroll" data-tilt>
             <div class="speaker-card__img-wrap">
-              <figure class="media-placeholder media-placeholder--speaker">
-                <div class="media-placeholder__inner">
-                  <span class="media-placeholder__label">Foto Ponente</span>
-                </div>
-              </figure>
+              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">MM</div>
             </div>
             <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Dr./Dra. [Nombre]</h3>
-              <p class="speaker-card__role">[Especialidad] · [Institución]</p>
+              <h3 class="speaker-card__name">Marlón Múnera Gómez</h3>
+              <p class="speaker-card__role">Biólogo · MSc en Inmunología</p>
+              <p class="speaker-card__org">PhD en Ciencias Biomédicas · Docente de Medicina, UNINÚÑEZ</p>
             </div>
+          </article>
+
+          <article class="speaker-card animate-on-scroll" data-tilt>
+            <div class="speaker-card__img-wrap">
+              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">HP</div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Henry Puerta Guardo</h3>
+              <p class="speaker-card__role">Bacteriólogo · PhD en Infectómica y patogénesis molecular</p>
+              <p class="speaker-card__org">Universidad Autónoma de Yucatán, México</p>
+            </div>
+          </article>
+
+          <article class="speaker-card animate-on-scroll" data-tilt>
+            <div class="speaker-card__img-wrap">
+              <div class="speaker-card__avatar" aria-hidden="true">JG</div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Juan Camilo García Domínguez</h3>
+              <p class="speaker-card__role">Cardiólogo · Ecocardiografista</p>
+              <p class="speaker-card__org">Radiólogos Asociados – Clínica Iberoamérica · BIOGUARD</p>
+            </div>
+          </article>
+
+          <article class="speaker-card animate-on-scroll" data-tilt>
+            <div class="speaker-card__img-wrap">
+              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">JM</div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Jorge Iván Marín Uribe</h3>
+              <p class="speaker-card__role">MSc en Microbiología clínica y Ciencias Médicas</p>
+              <p class="speaker-card__org">Doctorando en Enfermedades Infecciosas · Clínica Santillana, Manizales</p>
+            </div>
+          </article>
+
+          <article class="speaker-card animate-on-scroll" data-tilt>
+            <div class="speaker-card__img-wrap">
+              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">AG</div>
+            </div>
+            <div class="speaker-card__info">
+              <h3 class="speaker-card__name">Armando Cabrera González</h3>
+              <p class="speaker-card__role">Especialista en Medicina Interna</p>
+              <p class="speaker-card__org">Docente U. de Cartagena · Director, Curso OPES PRE-RESIDENTES</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SEDE Y MUESTRA COMERCIAL
+         ══════════════════════════════════════════ -->
+    <section class="venue section" id="sede" aria-labelledby="venue-heading">
+      <div class="container">
+        <span class="section-label">Sede</span>
+        <h2 class="section-heading" id="venue-heading">Dónde ocurre el Summit</h2>
+
+        <div class="venue__grid">
+
+          <article class="venue-card animate-on-scroll">
+            <div class="venue-card__badge">Auditorio</div>
+            <h3 class="venue-card__heading">Auditorio Torreón</h3>
+            <p class="venue-card__body">
+              Universidad de San Buenaventura Cartagena. Sede de las dos jornadas académicas
+              del Summit, los actos protocolarios y la clausura cultural.
+            </p>
+          </article>
+
+          <article class="venue-card animate-on-scroll">
+            <div class="venue-card__badge">Muestra Comercial</div>
+            <h3 class="venue-card__heading">Salón de eventos y exposiciones CICAG</h3>
+            <p class="venue-card__body">
+              Espacio permanente para la muestra comercial, activo durante las tres pausas
+              de café programadas a lo largo del evento.
+            </p>
+          </article>
+
+          <article class="venue-card animate-on-scroll">
+            <div class="venue-card__badge">Aforo</div>
+            <h3 class="venue-card__heading">130 asistentes</h3>
+            <p class="venue-card__body">
+              La capacidad del auditorio limita el evento a 130 personas. El pre-registro
+              permite reservar tu lugar antes de que se agoten los cupos.
+            </p>
+            <a class="btn btn--outline btn--sm" href="#registro">Reservar mi cupo</a>
           </article>
 
         </div>
@@ -556,20 +776,21 @@
 
         <div class="registro__intro animate-on-scroll">
           <span class="section-label">Inscripciones</span>
-          <h2 class="section-heading" id="registro-heading">Pre-registro al Congreso</h2>
+          <h2 class="section-heading" id="registro-heading">Pre-registro al Summit</h2>
           <p class="registro__body">
-            Asegura tu cupo y selecciona el taller de tu interés. Una vez que el congreso
-            sea confirmado, recibirás todos los detalles de pago y logística directamente
-            en tu correo electrónico.
+            El Auditorio Torreón tiene capacidad para <strong>130 personas</strong>. El pre-registro
+            nos permite dimensionar la asistencia y reservar tu lugar en las jornadas del
+            30 y 31 de octubre de 2026.
           </p>
           <p class="registro__body">
             El pre-registro es gratuito y no genera ningún compromiso de pago. Es únicamente
-            una manifestación de interés que nos ayuda a planificar el evento.
+            una manifestación de interés; los detalles definitivos de confirmación y logística
+            llegarán a tu correo electrónico.
           </p>
         </div>
 
         <form class="form registro__form animate-on-scroll" id="form-registro"
-              novalidate aria-label="Formulario de pre-registro al congreso">
+              novalidate aria-label="Formulario de pre-registro al Summit">
 
           <div class="form__group">
             <label class="form__label" for="reg-nombre">Nombre completo *</label>
@@ -591,37 +812,44 @@
             <label class="form__label" for="reg-especialidad">Especialidad / Perfil *</label>
             <select class="form__select" id="reg-especialidad" name="especialidad" required>
               <option value="" disabled selected>Seleccione su perfil…</option>
-              <option value="intensivista">Intensivista</option>
               <option value="infectologo">Infectólogo/a</option>
-              <option value="cardiologo">Cardiólogo/a</option>
-              <option value="medico_general">Médico/a General</option>
+              <option value="intensivista">Intensivista</option>
+              <option value="internista">Internista</option>
+              <option value="pediatra">Pediatra</option>
+              <option value="bacteriologo">Bacteriólogo/a · Microbiólogo/a</option>
+              <option value="salud_publica">Epidemiología / Salud Pública</option>
+              <option value="quimico_farmaceutico">Químico/a Farmacéutico/a</option>
               <option value="enfermeria">Enfermería</option>
-              <option value="fisioterapeuta">Fisioterapeuta</option>
-              <option value="bacteriologo">Bacteriólogo/a</option>
+              <option value="medico_general">Médico/a General</option>
               <option value="estudiante">Estudiante de Ciencias de la Salud</option>
+              <option value="industria">Industria / Muestra comercial</option>
               <option value="otro">Otro</option>
             </select>
             <span class="form__error" aria-live="polite"></span>
           </div>
 
+          <div class="form__group">
+            <label class="form__label" for="reg-institucion">Institución (opcional)</label>
+            <input class="form__input" type="text" id="reg-institucion"
+                   name="institucion" autocomplete="organization"
+                   placeholder="Hospital, universidad o empresa" />
+            <span class="form__error" aria-live="polite"></span>
+          </div>
+
           <fieldset class="form__fieldset">
-            <legend class="form__legend">Taller de interés (opcional)</legend>
+            <legend class="form__legend">Jornadas a las que asistirías (opcional)</legend>
             <div class="form__checkbox-group">
               <label class="form__checkbox-label">
-                <input type="checkbox" name="taller" value="ventilacion" />
-                Ventilación Mecánica y SDRA
+                <input type="checkbox" name="jornada" value="viernes_manana" />
+                Viernes 30 · Jornada mañana
               </label>
               <label class="form__checkbox-label">
-                <input type="checkbox" name="taller" value="ecocardiografia" />
-                Ecocardiografía Básica / Avanzada
+                <input type="checkbox" name="jornada" value="viernes_tarde" />
+                Viernes 30 · Jornada tarde
               </label>
               <label class="form__checkbox-label">
-                <input type="checkbox" name="taller" value="acceso_vascular" />
-                Acceso Vascular y Hemodinámica
-              </label>
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="taller" value="proa" />
-                Programa PROA
+                <input type="checkbox" name="jornada" value="sabado" />
+                Sábado 31 · Jornada única
               </label>
             </div>
           </fieldset>
@@ -644,7 +872,11 @@
     <section class="sponsors section" id="patrocinadores" aria-labelledby="sponsors-heading">
       <div class="container">
         <span class="section-label">Aliados Estratégicos</span>
-        <h2 class="section-heading" id="sponsors-heading">Patrocinadores</h2>
+        <h2 class="section-heading" id="sponsors-heading">Patrocinadores y Muestra Comercial</h2>
+        <p class="sponsors__intro">
+          La muestra comercial se instala en el Salón de eventos y exposiciones CICAG y permanece
+          activa durante las pausas de café de ambas jornadas.
+        </p>
 
         <div class="sponsors__tiers">
 
@@ -746,17 +978,18 @@
           <span class="section-label">Contáctenos</span>
           <h2 class="section-heading" id="contact-heading">¿Tienes preguntas?</h2>
           <p class="contact__body">
-            Para información sobre auspicios, ponencias, inscripciones o cualquier
-            aspecto logístico del evento, escríbenos y te responderemos a la brevedad.
+            Para información sobre la muestra comercial, inscripciones institucionales
+            o cualquier aspecto logístico del Summit, escríbenos y te responderemos
+            a la brevedad.
           </p>
           <address class="contact__address">
             <p>
               <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              <a href="mailto:congreso@ejemplo.com">congreso@ejemplo.com</a>
+              <span class="contact__pending">[Correo de contacto del Summit]</span>
             </p>
             <p>
               <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              [Ciudad, País]
+              Universidad de San Buenaventura Cartagena · Cartagena de Indias, Colombia
             </p>
           </address>
         </div>
@@ -816,12 +1049,14 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container site-footer__inner">
       <p class="site-footer__brand">
-        Congreso de Enfermedades Infecciosas,<br>Cuidado Crítico y Hemodinamia
+        1er Summit Internacional en Enfermedades<br>Infecciosas &amp; Medicina Crítica
+        <span class="site-footer__sub">Universidad de San Buenaventura Cartagena · 30 y 31 de octubre de 2026</span>
       </p>
       <nav class="site-footer__nav" aria-label="Navegación del pie de página">
         <a href="#inicio">Inicio</a>
         <a href="#programa">Programa</a>
-        <a href="#talleres">Talleres</a>
+        <a href="#ponentes">Ponentes</a>
+        <a href="#sede">Sede</a>
         <a href="#registro">Registro</a>
         <a href="#contacto">Contacto</a>
       </nav>

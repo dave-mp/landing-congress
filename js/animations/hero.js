@@ -18,7 +18,7 @@ export function initHeroAnimations() {
     });
     const accentLine = document.querySelector('.hero__headline-line--accent');
     if (accentLine) { accentLine.style.opacity = '1'; accentLine.style.transform = 'none'; }
-    animate('.hero__meta, .hero__actions', { opacity: [0, 1], duration: 400 });
+    animate('.hero__tagline, .hero__meta, .hero__actions', { opacity: [0, 1], duration: 400 });
     return;
   }
 
@@ -62,6 +62,13 @@ export function initHeroAnimations() {
     duration: 750,
     ease: 'outExpo',
   }, 480);
+
+  tl.add('.hero__tagline', {
+    opacity: [0, 1],
+    translateY: [16, 0],
+    duration: 500,
+    ease: 'outQuart',
+  }, '-=350');
 
   tl.add('.hero__meta', {
     opacity: [0, 1],
