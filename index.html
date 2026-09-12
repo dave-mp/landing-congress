@@ -45,32 +45,39 @@
         <circle cx="378" cy="200" r="8" fill="currentColor"/>
         <circle cx="22"  cy="200" r="5" fill="currentColor" opacity="0.5"/>
       </g>
+      <!-- Inner orbit -->
+      <ellipse cx="200" cy="200" rx="110" ry="36" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(90 200 200)"/>
+      <circle cx="200" cy="164" r="5" fill="currentColor" opacity="0.6"/>
     </svg>
   </div>
 
   <div class="orb-wrap orb-wrap--b" aria-hidden="true">
-    <svg class="orb-b" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hexagonal molecular lattice -->
-      <g stroke="currentColor" stroke-width="2" fill="none">
-        <polygon points="100,20 150,50 150,110 100,140 50,110 50,50"/>
-        <polygon points="100,60 125,75 125,105 100,120 75,105 75,75"/>
-        <line x1="100" y1="20" x2="100" y2="60"/>
-        <line x1="150" y1="50" x2="125" y2="75"/>
-        <line x1="150" y1="110" x2="125" y2="105"/>
-        <line x1="100" y1="140" x2="100" y2="120"/>
-        <line x1="50" y1="110" x2="75" y2="105"/>
-        <line x1="50" y1="50" x2="75" y2="75"/>
+    <svg class="orb-b" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="140" cy="140" r="14" fill="currentColor" opacity="0.7"/>
+      <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="260" cy="140" r="6" fill="currentColor"/>
+      <g transform="rotate(72 140 140)">
+        <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="260" cy="140" r="6" fill="currentColor"/>
       </g>
-      <g fill="currentColor">
-        <circle cx="100" cy="20"  r="6"/>
-        <circle cx="150" cy="50"  r="6"/>
-        <circle cx="150" cy="110" r="6"/>
-        <circle cx="100" cy="140" r="6"/>
-        <circle cx="50"  cy="110" r="6"/>
-        <circle cx="50"  cy="50"  r="6"/>
+      <g transform="rotate(144 140 140)">
+        <ellipse cx="140" cy="140" rx="120" ry="40" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="260" cy="140" r="6" fill="currentColor"/>
       </g>
     </svg>
   </div>
+
+  <!-- Theme init: read localStorage before first paint to avoid flash -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.dataset.theme = saved;
+      } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
 
   <!-- ══════════════════════════════════════════
        HEADER / NAV
