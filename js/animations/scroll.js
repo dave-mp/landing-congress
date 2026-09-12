@@ -53,18 +53,18 @@ export function initScrollAnimations() {
     }, 0.1).observe(topicsSection);
   }
 
-  // ── Workshops ──────────────────────────────────────────────────
-  const workshopsSection = document.querySelector('.workshops');
-  if (workshopsSection && document.querySelector('.workshop-card')) {
+  // ── Venue ──────────────────────────────────────────────────
+  const venueSection = document.querySelector('.venue');
+  if (venueSection && document.querySelector('.venue-card')) {
     makeObserver(() => {
-      animate('.workshop-card', {
+      animate('.venue-card', {
         opacity: [0, 1],
         translateY: [40, 0],
         duration: 550,
         ease: 'outQuart',
         delay: stagger(100, { from: 'first' }),
       });
-    }, 0.1).observe(workshopsSection);
+    }, 0.1).observe(venueSection);
   }
 
   // ── Speakers ───────────────────────────────────────────────────

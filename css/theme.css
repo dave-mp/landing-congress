@@ -54,9 +54,11 @@
   box-shadow: var(--shadow-md);
 }
 
-:root[data-theme="light"] .workshop-card {
-  background: var(--color-bg-surface);
-  box-shadow: var(--shadow-md);
+/* .venue sits on bg-surface (white in light), so the cards lift with the
+   elevated tone instead of white-on-white */
+:root[data-theme="light"] .venue-card {
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-sm);
 }
 
 :root[data-theme="light"] .speaker-card {
