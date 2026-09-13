@@ -99,7 +99,6 @@
         <li><a class="nav__link" href="#sobre">Sobre</a></li>
         <li><a class="nav__link" href="#temas">Ejes</a></li>
         <li><a class="nav__link" href="#programa">Programa</a></li>
-        <li><a class="nav__link" href="#ponentes">Ponentes</a></li>
         <li><a class="nav__link" href="#sede">Sede</a></li>
         <li><a class="nav__link" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="nav__link" href="#contacto">Contacto</a></li>
@@ -255,11 +254,11 @@
         </div>
 
         <div class="about__venue-image animate-on-scroll">
-          <figure class="media-placeholder media-placeholder--venue">
-            <div class="media-placeholder__inner">
-              <span class="media-placeholder__label">Foto — Auditorio Torreón, USB Cartagena</span>
-            </div>
-            <figcaption class="sr-only">Fotografía del Auditorio Torreón de la Universidad de San Buenaventura Cartagena</figcaption>
+          <figure class="venue-photo">
+            <img class="venue-photo__img" src="assets/venue/auditorio-torreon.jpg"
+                 alt="Auditorio Torreón, Universidad de San Buenaventura Cartagena"
+                 loading="lazy" />
+            <figcaption class="sr-only">Auditorio Torreón de la Universidad de San Buenaventura Cartagena, sede del Summit</figcaption>
           </figure>
           <div class="about__hex-deco" aria-hidden="true"></div>
         </div>
@@ -587,151 +586,6 @@
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════
-         PONENTES
-         ══════════════════════════════════════════ -->
-    <section class="speakers section" id="ponentes" aria-labelledby="speakers-heading">
-      <div class="container">
-        <span class="section-label">Conferencistas</span>
-        <h2 class="section-heading" id="speakers-heading">Ponentes Invitados</h2>
-
-        <div class="speakers__grid">
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar" aria-hidden="true">JB</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Juan Pablo Betancur Otálvaro</h3>
-              <p class="speaker-card__role">Médico pediatra · Enfermedades infecciosas</p>
-              <p class="speaker-card__org">Referente departamental PROA · Instituto Nacional de Salud (INS)</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">RA</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Reyna María Ayola Cerro</h3>
-              <p class="speaker-card__role">Odontóloga · MSc en Epidemiología</p>
-              <p class="speaker-card__org">Referente de IAAS, Vigilancia en Salud Pública · DADIS</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">GE</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Germán Esparza</h3>
-              <p class="speaker-card__role">Bacteriólogo · Microbiólogo clínico</p>
-              <p class="speaker-card__org">Subcomité de susceptibilidad antimicrobiana, CLSI · QUALITY / PROASECAL</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar" aria-hidden="true">AS</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Andrés Solano</h3>
-              <p class="speaker-card__role">Médico intensivista</p>
-              <p class="speaker-card__org">Fundación Santa Fe de Bogotá · Clínica Serena del Mar, Cartagena</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">EC</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Eder Cano Pérez</h3>
-              <p class="speaker-card__role">Biólogo · MSc en Genética</p>
-              <p class="speaker-card__org">Doctorando en Medicina Tropical · Universidad de Cartagena</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">AC</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Andrés Sánchez Caraballo</h3>
-              <p class="speaker-card__role">Biólogo · MSc en Inmunología</p>
-              <p class="speaker-card__org">Doctorando en Ciencias Farmacéuticas · Docente de Medicina, UNINÚÑEZ</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar" aria-hidden="true">BA</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Bárbara Julia Arroyo Salgado</h3>
-              <p class="speaker-card__role">Bacterióloga · MSc en Microbiología clínica</p>
-              <p class="speaker-card__org">PhD en Ciencias Biomédicas · Universidad de Cartagena</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">MM</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Marlón Múnera Gómez</h3>
-              <p class="speaker-card__role">Biólogo · MSc en Inmunología</p>
-              <p class="speaker-card__org">PhD en Ciencias Biomédicas · Docente de Medicina, UNINÚÑEZ</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">HP</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Henry Puerta Guardo</h3>
-              <p class="speaker-card__role">Bacteriólogo · PhD en Infectómica y patogénesis molecular</p>
-              <p class="speaker-card__org">Universidad Autónoma de Yucatán, México</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar" aria-hidden="true">JG</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Juan Camilo García Domínguez</h3>
-              <p class="speaker-card__role">Cardiólogo · Ecocardiografista</p>
-              <p class="speaker-card__org">Radiólogos Asociados – Clínica Iberoamérica · BIOGUARD</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v2" aria-hidden="true">JM</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Jorge Iván Marín Uribe</h3>
-              <p class="speaker-card__role">MSc en Microbiología clínica y Ciencias Médicas</p>
-              <p class="speaker-card__org">Doctorando en Enfermedades Infecciosas · Clínica Santillana, Manizales</p>
-            </div>
-          </article>
-
-          <article class="speaker-card animate-on-scroll" data-tilt>
-            <div class="speaker-card__img-wrap">
-              <div class="speaker-card__avatar speaker-card__avatar--v3" aria-hidden="true">AG</div>
-            </div>
-            <div class="speaker-card__info">
-              <h3 class="speaker-card__name">Armando Cabrera González</h3>
-              <p class="speaker-card__role">Especialista en Medicina Interna</p>
-              <p class="speaker-card__org">Docente U. de Cartagena · Director, Curso OPES PRE-RESIDENTES</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
 
     <!-- ══════════════════════════════════════════
          SEDE Y MUESTRA COMERCIAL
@@ -768,7 +622,6 @@
               La capacidad del auditorio limita el evento a 130 personas. El pre-registro
               permite reservar tu lugar antes de que se agoten los cupos.
             </p>
-            <a class="btn btn--outline btn--sm" href="#registro">Reservar mi cupo</a>
           </article>
 
         </div>
@@ -779,9 +632,8 @@
          PRE-REGISTRO
          ══════════════════════════════════════════ -->
     <section class="registro section" id="registro" aria-labelledby="registro-heading">
-      <div class="container registro__grid">
-
-        <div class="registro__intro animate-on-scroll">
+      <div class="container">
+        <div class="registro__panel animate-on-scroll">
           <span class="section-label">Inscripciones</span>
           <h2 class="section-heading" id="registro-heading">Pre-registro al Summit</h2>
           <p class="registro__body">
@@ -790,86 +642,17 @@
             30 y 31 de octubre de 2026.
           </p>
           <p class="registro__body">
-            El pre-registro es gratuito y no genera ningún compromiso de pago. Es únicamente
-            una manifestación de interés; los detalles definitivos de confirmación y logística
-            llegarán a tu correo electrónico.
+            El formulario es gratuito y no genera ningún compromiso de pago. Los detalles
+            definitivos de confirmación y logística llegarán a tu correo electrónico.
           </p>
+          <a class="btn btn--primary btn--lg registro__cta"
+             href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=TXXeFEnUD0CT-nf5gj7dvWRuWyR46gFDmKqll2oBZ4dUQzhQRDJDWVBPR000N1FTUkMxSlFIUzVMMi4u&amp;route=shorturl"
+             target="_blank" rel="noopener noreferrer">
+            Ir al formulario de pre-registro
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <p class="registro__note">Se abre en una pestaña nueva · Formulario alojado en Microsoft Forms</p>
         </div>
-
-        <form class="form registro__form animate-on-scroll" id="form-registro"
-              novalidate aria-label="Formulario de pre-registro al Summit">
-
-          <div class="form__group">
-            <label class="form__label" for="reg-nombre">Nombre completo *</label>
-            <input class="form__input" type="text" id="reg-nombre"
-                   name="nombre" required minlength="3" autocomplete="name"
-                   placeholder="Ej. María García López" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="reg-email">Correo electrónico *</label>
-            <input class="form__input" type="email" id="reg-email"
-                   name="email" required autocomplete="email"
-                   placeholder="correo@ejemplo.com" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="reg-especialidad">Especialidad / Perfil *</label>
-            <select class="form__select" id="reg-especialidad" name="especialidad" required>
-              <option value="" disabled selected>Seleccione su perfil…</option>
-              <option value="infectologo">Infectólogo/a</option>
-              <option value="intensivista">Intensivista</option>
-              <option value="internista">Internista</option>
-              <option value="pediatra">Pediatra</option>
-              <option value="bacteriologo">Bacteriólogo/a · Microbiólogo/a</option>
-              <option value="salud_publica">Epidemiología / Salud Pública</option>
-              <option value="quimico_farmaceutico">Químico/a Farmacéutico/a</option>
-              <option value="enfermeria">Enfermería</option>
-              <option value="medico_general">Médico/a General</option>
-              <option value="estudiante">Estudiante de Ciencias de la Salud</option>
-              <option value="industria">Industria / Muestra comercial</option>
-              <option value="otro">Otro</option>
-            </select>
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="reg-institucion">Institución (opcional)</label>
-            <input class="form__input" type="text" id="reg-institucion"
-                   name="institucion" autocomplete="organization"
-                   placeholder="Hospital, universidad o empresa" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <fieldset class="form__fieldset">
-            <legend class="form__legend">Jornadas a las que asistirías (opcional)</legend>
-            <div class="form__checkbox-group">
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="jornada" value="viernes_manana" />
-                Viernes 30 · Jornada mañana
-              </label>
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="jornada" value="viernes_tarde" />
-                Viernes 30 · Jornada tarde
-              </label>
-              <label class="form__checkbox-label">
-                <input type="checkbox" name="jornada" value="sabado" />
-                Sábado 31 · Jornada única
-              </label>
-            </div>
-          </fieldset>
-
-          <button class="btn btn--primary btn--full" type="submit">
-            Enviar Pre-registro
-          </button>
-
-          <p class="form__success" role="alert" aria-live="polite" hidden>
-            ¡Gracias por tu interés! Recibirás confirmación en tu correo electrónico.
-          </p>
-
-        </form>
       </div>
     </section>
 
@@ -885,93 +668,43 @@
           activa durante las pausas de café de ambas jornadas.
         </p>
 
-        <div class="sponsors__tiers">
-
-          <div class="sponsors__tier sponsors__tier--platinum">
-            <h3 class="sponsors__tier-label">Platino</h3>
-            <div class="sponsors__logo-grid">
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner">
-                    <span class="media-placeholder__label">Logo Patrocinador</span>
-                  </div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner">
-                    <span class="media-placeholder__label">Logo Patrocinador</span>
-                  </div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner">
-                    <span class="media-placeholder__label">Logo Patrocinador</span>
-                  </div>
-                </figure>
-              </div>
+        <ul class="sponsors__grid" role="list">
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/corporacion-universitaria-rafael-nunez.png"
+                   alt="Corporación Universitaria Rafael Núñez" loading="lazy" />
             </div>
-          </div>
-
-          <div class="sponsors__tier sponsors__tier--gold">
-            <h3 class="sponsors__tier-label">Oro</h3>
-            <div class="sponsors__logo-grid">
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
+            <p class="sponsor__name">Corporación Universitaria Rafael Núñez</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/instituto-nacional-de-salud.png"
+                   alt="Instituto Nacional de Salud" loading="lazy" />
             </div>
-          </div>
-
-          <div class="sponsors__tier sponsors__tier--silver">
-            <h3 class="sponsors__tier-label">Plata</h3>
-            <div class="sponsors__logo-grid">
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
-              <div class="sponsor-logo animate-on-scroll">
-                <figure class="media-placeholder media-placeholder--logo">
-                  <div class="media-placeholder__inner"><span class="media-placeholder__label">Logo</span></div>
-                </figure>
-              </div>
+            <p class="sponsor__name">Instituto Nacional de Salud</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/proasecal.png"
+                   alt="Proasecal" loading="lazy" />
             </div>
-          </div>
-
-        </div>
+            <p class="sponsor__name">Proasecal</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/universidad-de-cartagena.png"
+                   alt="Universidad de Cartagena" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Universidad de Cartagena</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/universidad-de-san-buenaventura.png"
+                   alt="Universidad de San Buenaventura" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Universidad de San Buenaventura</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -979,15 +712,15 @@
          CONTACTO
          ══════════════════════════════════════════ -->
     <section class="contact section" id="contacto" aria-labelledby="contact-heading">
-      <div class="container contact__grid">
+      <div class="container contact__inner">
 
         <div class="contact__info animate-on-scroll">
           <span class="section-label">Contáctenos</span>
           <h2 class="section-heading" id="contact-heading">¿Tienes preguntas?</h2>
           <p class="contact__body">
             Para información sobre la muestra comercial, inscripciones institucionales
-            o cualquier aspecto logístico del Summit, escríbenos y te responderemos
-            a la brevedad.
+            o cualquier aspecto logístico del Summit, escríbenos al correo del comité
+            organizador.
           </p>
           <address class="contact__address">
             <p>
@@ -1001,50 +734,6 @@
           </address>
         </div>
 
-        <form class="form contact__form animate-on-scroll" id="form-contacto"
-              novalidate aria-label="Formulario de contacto">
-
-          <div class="form__group">
-            <label class="form__label" for="con-nombre">Nombre *</label>
-            <input class="form__input" type="text" id="con-nombre"
-                   name="nombre" required minlength="2" autocomplete="name"
-                   placeholder="Tu nombre completo" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="con-email">Correo electrónico *</label>
-            <input class="form__input" type="email" id="con-email"
-                   name="email" required autocomplete="email"
-                   placeholder="correo@ejemplo.com" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="con-asunto">Asunto *</label>
-            <input class="form__input" type="text" id="con-asunto"
-                   name="asunto" required minlength="4"
-                   placeholder="Motivo de tu mensaje" />
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="con-mensaje">Mensaje *</label>
-            <textarea class="form__textarea" id="con-mensaje"
-                      name="mensaje" rows="5" required minlength="20"
-                      placeholder="Escribe tu consulta aquí…"></textarea>
-            <span class="form__error" aria-live="polite"></span>
-          </div>
-
-          <button class="btn btn--primary btn--full" type="submit">
-            Enviar Mensaje
-          </button>
-
-          <p class="form__success" role="alert" aria-live="polite" hidden>
-            Mensaje enviado con éxito. Nos pondremos en contacto contigo pronto.
-          </p>
-
-        </form>
       </div>
     </section>
 
@@ -1062,7 +751,6 @@
       <nav class="site-footer__nav" aria-label="Navegación del pie de página">
         <a href="#inicio">Inicio</a>
         <a href="#programa">Programa</a>
-        <a href="#ponentes">Ponentes</a>
         <a href="#sede">Sede</a>
         <a href="#registro">Registro</a>
         <a href="#contacto">Contacto</a>
