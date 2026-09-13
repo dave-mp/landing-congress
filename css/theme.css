@@ -54,14 +54,7 @@
   box-shadow: var(--shadow-md);
 }
 
-/* .venue sits on bg-surface (white in light), so the cards lift with the
-   elevated tone instead of white-on-white */
 :root[data-theme="light"] .venue-card {
-  background: var(--color-bg-elevated);
-  box-shadow: var(--shadow-sm);
-}
-
-:root[data-theme="light"] .speaker-card {
   background: var(--color-bg-surface);
   box-shadow: var(--shadow-md);
 }
@@ -71,17 +64,8 @@
   opacity: 0.3;
 }
 
-:root[data-theme="light"] .media-placeholder__inner {
-  background: var(--color-bg-elevated);
-  border-color: var(--color-border-strong);
-}
-
 :root[data-theme="light"] .about__audience-item {
   background: var(--color-bg-elevated);
-  color: var(--color-text-secondary);
-}
-
-:root[data-theme="light"] .sponsors__tier-label {
   color: var(--color-text-secondary);
 }
 

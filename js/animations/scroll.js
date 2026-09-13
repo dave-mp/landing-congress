@@ -67,46 +67,25 @@ export function initScrollAnimations() {
     }, 0.1).observe(venueSection);
   }
 
-  // ── Speakers ───────────────────────────────────────────────────
-  const speakersSection = document.querySelector('.speakers');
-  if (speakersSection && document.querySelector('.speaker-card')) {
-    makeObserver(() => {
-      animate('.speaker-card', {
-        opacity: [0, 1],
-        scale: [0.88, 1],
-        duration: 500,
-        ease: 'outQuad',
-        delay: stagger(65, { from: 'center' }),
-      });
-    }, 0.1).observe(speakersSection);
-  }
-
   // ── Registro ───────────────────────────────────────────────────
   const registroSection = document.querySelector('.registro');
   if (registroSection) {
     makeObserver(() => {
-      animate('.registro__intro', {
+      animate('.registro__panel', {
         opacity: [0, 1],
-        translateX: [-30, 0],
+        translateY: [30, 0],
         duration: 600,
         ease: 'outQuart',
-      });
-      animate('.registro__form', {
-        opacity: [0, 1],
-        translateX: [30, 0],
-        duration: 600,
-        ease: 'outQuart',
-        delay: 120,
       });
     }, 0.05).observe(registroSection);
   }
 
   // ── Sponsors ───────────────────────────────────────────────────
   const sponsorsSection = document.querySelector('.sponsors');
-  if (sponsorsSection && document.querySelector('.sponsor-logo')) {
+  if (sponsorsSection && document.querySelector('.sponsor')) {
     makeObserver(() => {
-      animate('.sponsor-logo', {
-        opacity: [0, 0.8],
+      animate('.sponsor', {
+        opacity: [0, 1],
         scale: [0.8, 1],
         duration: 450,
         ease: 'outQuad',
@@ -121,16 +100,9 @@ export function initScrollAnimations() {
     makeObserver(() => {
       animate('.contact__info', {
         opacity: [0, 1],
-        translateX: [-30, 0],
+        translateY: [24, 0],
         duration: 600,
         ease: 'outQuart',
-      });
-      animate('.contact__form', {
-        opacity: [0, 1],
-        translateX: [30, 0],
-        duration: 600,
-        ease: 'outQuart',
-        delay: 120,
       });
     }, 0.05).observe(contactSection);
   }
