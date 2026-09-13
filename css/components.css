@@ -900,11 +900,6 @@
   margin-bottom: var(--space-8);
 }
 
-.contact__pending {
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
 .contact__address {
   display: flex;
   flex-direction: column;
@@ -915,6 +910,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* El correo es una cadena larga sin espacios: sin wrap desborda en
+     pantallas estrechas. */
+  flex-wrap: wrap;
   gap: var(--space-3);
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
@@ -961,6 +959,21 @@
 .site-footer__legal {
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
+}
+
+.site-footer__credit {
+  display: block;
+  margin-top: var(--space-2);
+}
+
+.site-footer__credit a {
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast);
+}
+
+.site-footer__credit a:hover,
+.site-footer__credit a:focus-visible {
+  color: var(--color-accent);
 }
 
 /* ════════════════════════════════════════
