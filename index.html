@@ -668,16 +668,40 @@
           activa durante las pausas de café de ambas jornadas.
         </p>
 
+        <!-- Duotono de marca: unifica el color de todos los logos conservando el detalle.
+             Se aplica vía `filter: url(#sponsor-duotone)` en .sponsor__logo. -->
+        <svg class="sponsors__filter" aria-hidden="true" focusable="false">
+          <filter id="sponsor-duotone" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix"
+                           values="0.2126 0.7152 0.0722 0 0
+                                   0.2126 0.7152 0.0722 0 0
+                                   0.2126 0.7152 0.0722 0 0
+                                   0      0      0      1 0" />
+            <feComponentTransfer>
+              <feFuncR type="table" tableValues="0.09 0.80" />
+              <feFuncG type="table" tableValues="0.14 0.87" />
+              <feFuncB type="table" tableValues="0.32 0.98" />
+            </feComponentTransfer>
+          </filter>
+        </svg>
+
         <ul class="sponsors__grid" role="list">
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/corporacion-universitaria-rafael-nunez.png"
+              <img class="sponsor__logo" src="assets/sponsors/uninunez.svg"
                    alt="Corporación Universitaria Rafael Núñez" loading="lazy" />
             </div>
             <p class="sponsor__name">Corporación Universitaria Rafael Núñez</p>
           </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/dadis.png"
+                   alt="DADIS — Departamento Administrativo Distrital de Salud de Cartagena" loading="lazy" />
+            </div>
+            <p class="sponsor__name">DADIS Cartagena</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--wide">
               <img class="sponsor__logo" src="assets/sponsors/instituto-nacional-de-salud.png"
                    alt="Instituto Nacional de Salud" loading="lazy" />
             </div>
@@ -691,18 +715,18 @@
             <p class="sponsor__name">Proasecal</p>
           </li>
           <li class="sponsor animate-on-scroll">
-            <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/universidad-de-cartagena.png"
-                   alt="Universidad de Cartagena" loading="lazy" />
+            <div class="sponsor__frame sponsor__frame--tall">
+              <img class="sponsor__logo" src="assets/sponsors/universidad-autonoma-de-tucuman.svg"
+                   alt="Universidad Autónoma de Tucumán" loading="lazy" />
             </div>
-            <p class="sponsor__name">Universidad de Cartagena</p>
+            <p class="sponsor__name">Universidad Autónoma de Tucumán</p>
           </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/universidad-de-san-buenaventura.png"
-                   alt="Universidad de San Buenaventura" loading="lazy" />
+              <img class="sponsor__logo" src="assets/sponsors/unicartagena.png"
+                   alt="Universidad de Cartagena" loading="lazy" />
             </div>
-            <p class="sponsor__name">Universidad de San Buenaventura</p>
+            <p class="sponsor__name">Universidad de Cartagena</p>
           </li>
         </ul>
       </div>

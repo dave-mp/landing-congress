@@ -171,7 +171,13 @@ main {
 }
 
 @media (min-width: 1024px) {
-  .sponsors__grid { grid-template-columns: repeat(5, 1fr); }
+  /* 6 aliados → dos filas iguales de 3, con ancho acotado para que
+     los recuadros no crezcan de más. */
+  .sponsors__grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 920px;
+    margin-inline: auto;
+  }
 }
 
 /* ── Contact ── */
