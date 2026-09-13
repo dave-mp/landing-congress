@@ -483,6 +483,17 @@
   object-fit: cover;
 }
 
+.venue-photo__caption {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-secondary);
+  text-align: center;
+  text-wrap: balance;
+}
+
 .about__hex-deco {
   position: absolute;
   bottom: -24px;
