@@ -152,42 +152,68 @@
 /* ════════════════════════════════════════
    NAV
    ════════════════════════════════════════ */
-.nav__logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+/* Título del evento: línea pequeña sobre la barra de navegación. */
+.site-header__title {
+  padding-top: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  line-height: var(--line-height-snug);
+  color: var(--color-accent-2);
+  text-wrap: balance;
+}
+
+/* Entidad organizadora: logo USB + programa y registro apilados. */
+.nav__org-logo {
+  --org-logo-h: 32px;
+  display: block;
   flex-shrink: 0;
-  text-decoration: none;
+  /* El texto del logo usa currentColor: sigue al tema, el sello conserva
+     el naranja institucional. */
+  color: var(--color-text-primary);
 }
 
-.nav__logo-mark {
+.nav__org-logo svg {
+  display: block;
+  height: var(--org-logo-h);
+  width: calc(var(--org-logo-h) * 144.41 / 43.88);
+}
+
+.nav__org-text {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-3));
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-black);
-  color: #fff;
-  letter-spacing: -0.02em;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--color-border-strong);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-snug);
 }
 
-.nav__logo-text {
-  font-size: var(--font-size-sm);
+.nav__org-program {
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  display: none;
 }
 
-@media (min-width: 768px) {
-  .nav__logo-text { display: block; }
+.nav__org-reg {
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 640px) {
+  .nav__org-logo { --org-logo-h: 36px; }
+}
+
+/* Teléfonos: el texto ocupa su propia fila, sin el separador vertical. */
+@media (max-width: 639px) {
+  .nav__org-text {
+    padding-left: 0;
+    border-left: 0;
+  }
 }
 
 .nav__link {
-  padding: var(--space-2) var(--space-3);
-  font-size: var(--font-size-sm);
+  padding: var(--space-2);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-secondary);
   border-radius: var(--radius-md);
@@ -246,8 +272,9 @@
   pointer-events: none;
 }
 
-/* Mobile nav */
-@media (max-width: 1023px) {
+/* Mobile nav: panel bajo el header (que sigue visible con el botón de
+   cerrar) y con scroll propio si los enlaces no caben en la pantalla. */
+@media (max-width: 1199px) {
   .nav__hamburger {
     display: flex;
   }
@@ -255,15 +282,20 @@
   .nav__links {
     display: none;
     position: fixed;
-    inset: 0;
-    top: 0;
+    top: var(--header-h, 0px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
     background-color: var(--color-bg-base);
+    border-top: 1px solid var(--color-border);
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-2);
+    padding: var(--space-10) var(--container-pad);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     z-index: var(--z-overlay);
-    padding: var(--space-8);
   }
 
   .nav__links.is-open {
@@ -271,7 +303,13 @@
   }
 
   .nav__link {
-    font-size: var(--font-size-xl);
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-lg);
+  }
+
+  .nav__cta {
+    margin-top: var(--space-4);
   }
 }
 
@@ -279,6 +317,7 @@
    HERO
    ════════════════════════════════════════ */
 .hero {
+  --hero-gap: clamp(var(--space-5), 3.5svh, var(--space-8));
   background: linear-gradient(135deg, #0a0e1a 0%, #0d1529 50%, #12102a 100%);
 }
 
@@ -293,11 +332,13 @@
 }
 
 .hero__headline {
-  font-size: var(--font-size-5xl);
+  /* También limitado por la altura: en portátiles de poca altura el
+     titular de tres líneas no empuja los botones fuera de la pantalla. */
+  font-size: clamp(2.2rem, min(6vw, 9svh), 4.5rem);
   font-weight: var(--font-weight-black);
   letter-spacing: var(--letter-spacing-tight);
   line-height: var(--line-height-tight);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--hero-gap);
   overflow: hidden;
 }
 
@@ -315,7 +356,7 @@
 
 .hero__tagline {
   max-width: 56ch;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--hero-gap);
   font-size: var(--font-size-md);
   line-height: var(--line-height-relaxed);
   color: var(--color-text-secondary);
@@ -326,7 +367,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-6);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--hero-gap);
   opacity: 0;
 }
 

@@ -114,11 +114,21 @@
        HEADER / NAV
        ══════════════════════════════════════════ -->
   <header class="site-header" role="banner">
+    <p class="site-header__title container">
+      1er Summit Internacional · Enfermedades Infecciosas &amp; Medicina Crítica
+    </p>
+
     <nav class="nav container" aria-label="Navegación principal">
-      <a class="nav__logo" href="#inicio" aria-label="Inicio del Summit">
-        <span class="nav__logo-mark" aria-hidden="true">SI</span>
-        <span class="nav__logo-text">1er Summit Internacional</span>
+      <!-- Entidad organizadora: el texto del logo usa currentColor para seguir al tema. -->
+      <a class="nav__org-logo" href="#inicio" aria-label="Inicio · Universidad de San Buenaventura Cartagena">
+        <svg viewBox="0 0 144.41 43.88" aria-hidden="true" focusable="false">
+          <use href="assets/organizer/usb-logo.svg#usb-logo" />
+        </svg>
       </a>
+      <div class="nav__org-text">
+        <p class="nav__org-program">Programa de Bacteriología y Laboratorio Clínico</p>
+        <p class="nav__org-reg">SNIES 4071 · Res. 000621 del 30 de enero de 2023</p>
+      </div>
 
       <button class="nav__hamburger" aria-label="Abrir menú de navegación" aria-expanded="false"
         aria-controls="nav-links">
@@ -134,7 +144,7 @@
         <li><a class="nav__link" href="#sede">Sede</a></li>
         <li><a class="nav__link" href="#patrocinadores">Patrocinadores</a></li>
         <li><a class="nav__link" href="#contacto">Contacto</a></li>
-        <li><a class="btn btn--accent nav__cta" href="#registro">Pre-registro</a></li>
+        <li><a class="btn btn--accent btn--sm nav__cta" href="#registro">Pre-registro</a></li>
       </ul>
 
       <button class="theme-toggle" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
