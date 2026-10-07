@@ -387,6 +387,78 @@
   opacity: 0;
 }
 
+/* Logo del evento en un medallón claro (mismo degradado que las tarjetas
+   de patrocinadores), con un halo azul que lo integra en el fondo. */
+.hero__logo {
+  --hero-logo-size: clamp(96px, 24vw, 168px);
+  display: grid;
+  place-items: center;
+  width: var(--hero-logo-size);
+  aspect-ratio: 1;
+  margin-bottom: var(--hero-gap);
+  padding: 9%;
+  border-radius: var(--radius-full);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f3f6fc 100%);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg), 0 0 80px var(--color-accent-glow);
+  opacity: 0;
+  /* Se muestra antes que el texto (a su izquierda en escritorio, encima en
+     tablet). En el DOM va después para que los lectores de pantalla lean
+     primero el título. */
+  order: -1;
+}
+
+.hero__logo img {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero__logo {
+    /* Acotado por el ancho de la columna y por la altura disponible. */
+    --hero-logo-size: min(440px, 34vw, 52svh);
+    margin-bottom: 0;
+  }
+}
+
+/* Pantallas estrechas: el medallón se muestra encima del texto. */
+@media (max-width: 1023px) {
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Teléfonos: medallón pequeño en la misma fila que el antetítulo, para que
+   el hero siga cabiendo en la pantalla. .hero__text se "disuelve" con
+   display: contents y sus hijos pasan a la rejilla. */
+@media (max-width: 639px) {
+  .hero__content {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--space-4);
+  }
+
+  .hero__text { display: contents; }
+
+  .hero__text > * { grid-column: 1 / -1; }
+
+  .hero__logo {
+    --hero-logo-size: 64px;
+    grid-column: 1;
+    grid-row: 1;
+    padding: 7%;
+    box-shadow: var(--shadow-md), 0 0 32px var(--color-accent-glow);
+  }
+
+  .hero__eyebrow {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: var(--hero-gap);
+  }
+}
+
 .hero__scroll-cue {
   position: absolute;
   bottom: var(--space-8);
