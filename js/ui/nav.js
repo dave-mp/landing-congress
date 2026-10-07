@@ -16,33 +16,46 @@ export function initNav() {
   document.body.prepend(sentinel);
   scrollObserver.observe(sentinel);
 
+  // Altura real del header (franja institucional + nav) para scroll-padding-top
+  if (header) {
+    const setHeaderHeight = () =>
+      document.documentElement.style.setProperty('--header-h', `${header.offsetHeight}px`);
+    new ResizeObserver(setHeaderHeight).observe(header);
+    setHeaderHeight();
+  }
+
   // Mobile hamburger
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('is-open');
+    const setMenuOpen = isOpen => {
+      navLinks.classList.toggle('is-open', isOpen);
       hamburger.classList.toggle('is-open', isOpen);
+      header?.classList.toggle('is-menu-open', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
       document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    hamburger.addEventListener('click', () => {
+      setMenuOpen(!navLinks.classList.contains('is-open'));
     });
 
     // Close on nav link click
     navLinks.querySelectorAll('.nav__link, .nav__cta').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('is-open');
-        hamburger.classList.remove('is-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', () => setMenuOpen(false));
     });
 
     // Close on Escape
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && navLinks.classList.contains('is-open')) {
-        navLinks.classList.remove('is-open');
-        hamburger.classList.remove('is-open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        setMenuOpen(false);
+        hamburger.focus();
       }
+    });
+
+    // Al pasar a escritorio el menú desplegable deja de existir: cerrarlo
+    // para no dejar el scroll de la página bloqueado.
+    window.matchMedia('(min-width: 1200px)').addEventListener('change', e => {
+      if (e.matches) setMenuOpen(false);
     });
   }
 }
