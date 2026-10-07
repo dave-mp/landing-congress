@@ -11,6 +11,10 @@ export function initHeroAnimations() {
     delay: 100,
   });
 
+  animate('.hero__logo', prefersReducedMotion
+    ? { opacity: [0, 1], duration: 400 }
+    : { opacity: [0, 1], scale: [0.92, 1], duration: 900, ease: 'outExpo', delay: 350 });
+
   if (prefersReducedMotion) {
     document.querySelectorAll('.hero__char').forEach(el => {
       el.style.opacity = '1';

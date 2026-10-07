@@ -130,10 +130,20 @@ html {
   padding-block: clamp(var(--space-8), 6svh, var(--space-16)) var(--space-24);
 }
 
+/* Escritorio: logo del evento a la izquierda y texto a la derecha. */
+@media (min-width: 1024px) {
+  .hero__content {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: var(--space-12);
+  }
+}
+
 /* Teléfonos: el contenido ocupa casi toda la pantalla y el gesto de
    scroll es natural, así que se omite el indicador y su espacio. */
 @media (max-width: 639px) {
-  .hero__content { padding-bottom: var(--space-10); }
+  .hero__content { padding-block: var(--space-6) var(--space-10); }
   .hero__scroll-cue { display: none; }
 }
 
