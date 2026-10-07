@@ -946,6 +946,46 @@
   text-underline-offset: 2px;
 }
 
+/* Comité científico: lista de texto plano en dos columnas, con el mismo
+   tamaño que la dirección. El texto va alineado a la izquierda para que
+   las viñetas queden en columna. */
+.contact__committee {
+  display: flex;
+  flex-direction: column;
+  /* Centrado flex: si la lista supera los 60ch del bloque de contacto,
+     sobresale por igual a ambos lados en lugar de solo a la derecha. */
+  align-items: center;
+  margin-top: var(--space-12);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.contact__committee-title {
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.contact__committee-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2) var(--space-10);
+  width: fit-content;
+  padding-left: var(--space-5);
+  list-style: disc;
+  text-align: left;
+  line-height: var(--line-height-snug);
+}
+
+/* Dos columnas solo cuando cabe cada integrante en una línea. */
+@media (min-width: 960px) {
+  .contact__committee-list {
+    grid-template-columns: repeat(2, auto);
+    width: max-content;
+  }
+}
+
 /* ════════════════════════════════════════
    FOOTER
    ════════════════════════════════════════ */
