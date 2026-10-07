@@ -81,18 +81,20 @@ export function initScrollAnimations() {
   }
 
   // ── Sponsors ───────────────────────────────────────────────────
-  const sponsorsSection = document.querySelector('.sponsors');
-  if (sponsorsSection && document.querySelector('.sponsor')) {
+  // Cada grupo se anima al entrar en pantalla, no toda la sección a la vez.
+  document.querySelectorAll('.sponsors__group').forEach((group) => {
+    const items = group.querySelectorAll('.sponsor');
+    if (!items.length) return;
     makeObserver(() => {
-      animate('.sponsor', {
+      animate(items, {
         opacity: [0, 1],
         scale: [0.8, 1],
         duration: 450,
         ease: 'outQuad',
         delay: stagger(55, { from: 'first' }),
       });
-    }, 0.1).observe(sponsorsSection);
-  }
+    }, 0.1).observe(group);
+  });
 
   // ── Contact ────────────────────────────────────────────────────
   const contactSection = document.querySelector('.contact');

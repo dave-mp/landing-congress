@@ -171,12 +171,19 @@ main {
 }
 
 @media (min-width: 1024px) {
-  /* 6 aliados → dos filas iguales de 3, con ancho acotado para que
-     los recuadros no crezcan de más. */
+  /* Ancho acotado para que los recuadros no crezcan de más. Ambas rejillas
+     comparten el mismo ancho de columna (~262px) para que todas las
+     tarjetas midan igual. */
   .sponsors__grid {
     grid-template-columns: repeat(3, 1fr);
-    max-width: 920px;
+    max-width: 834px;
     margin-inline: auto;
+  }
+
+  /* 8 aliados → dos filas iguales de 4, sin ítems huérfanos. */
+  .sponsors__grid--wide {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1120px;
   }
 }
 
