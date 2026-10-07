@@ -697,15 +697,8 @@
     <!-- ══════════════════════════════════════════
          PATROCINADORES
          ══════════════════════════════════════════ -->
-    <section class="sponsors section" id="patrocinadores" aria-labelledby="sponsors-heading">
+    <section class="sponsors section" id="patrocinadores" aria-labelledby="sponsors-heading commercial-heading">
       <div class="container">
-        <span class="section-label">Aliados Estratégicos</span>
-        <h2 class="section-heading" id="sponsors-heading">Patrocinadores y Muestra Comercial</h2>
-        <p class="sponsors__intro">
-          La muestra comercial se instala en el Salón de eventos y exposiciones CICAG y permanece
-          activa durante las pausas de café de ambas jornadas.
-        </p>
-
         <!-- Duotono de marca: unifica el color de todos los logos conservando el detalle.
              Se aplica vía `filter: url(#sponsor-duotone)` en .sponsor__logo. -->
         <svg class="sponsors__filter" aria-hidden="true" focusable="false">
@@ -720,51 +713,156 @@
               <feFuncB type="table" tableValues="0.32 0.98" />
             </feComponentTransfer>
           </filter>
+          <!-- Variante para logos con fondo opaco: el blanco se mantiene blanco y,
+               con `mix-blend-mode: multiply`, el fondo se funde con el recuadro. -->
+          <filter id="sponsor-duotone-opaque" color-interpolation-filters="sRGB">
+            <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0
+                                   0.2126 0.7152 0.0722 0 0
+                                   0.2126 0.7152 0.0722 0 0
+                                   0      0      0      1 0" />
+            <feComponentTransfer>
+              <feFuncR type="table" tableValues="0.09 1" />
+              <feFuncG type="table" tableValues="0.14 1" />
+              <feFuncB type="table" tableValues="0.32 1" />
+            </feComponentTransfer>
+          </filter>
         </svg>
 
-        <ul class="sponsors__grid" role="list">
+
+        <div class="sponsors__group">
+          <h2 class="section-heading" id="sponsors-heading">Aliados Estratégicos</h2>
+          <ul class="sponsors__grid sponsors__grid--wide" role="list">
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--wide">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/institutions/annar.png"
+                alt="Annar Health Technologies" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Annar Health Technologies</p>
+          </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/uninunez.svg" alt="Corporación Universitaria Rafael Núñez"
-                loading="lazy" />
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/institutions/colegio-profesional-de-laboratorio-clinico-bolivar.jpeg"
+                alt="Colegio de Profesionales del Laboratorio Clínico de Bolívar" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Colegio de Profesionales del Laboratorio Clínico de Bolívar</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/institutions/uninunez.svg"
+                alt="Corporación Universitaria Rafael Núñez" loading="lazy" />
             </div>
             <p class="sponsor__name">Corporación Universitaria Rafael Núñez</p>
           </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/dadis.png"
+              <img class="sponsor__logo" src="assets/sponsors/institutions/dadis.png"
                 alt="DADIS — Departamento Administrativo Distrital de Salud de Cartagena" loading="lazy" />
             </div>
             <p class="sponsor__name">DADIS Cartagena</p>
           </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame sponsor__frame--wide">
-              <img class="sponsor__logo" src="assets/sponsors/instituto-nacional-de-salud.png"
-                alt="Instituto Nacional de Salud" loading="lazy" />
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/institutions/opes.png"
+                alt="OPES — Organización Pro Educación Superior" loading="lazy" />
             </div>
-            <p class="sponsor__name">Instituto Nacional de Salud</p>
+            <p class="sponsor__name">Organización Pro Educación Superior (OPES)</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--tall">
+              <img class="sponsor__logo" src="assets/sponsors/institutions/universidad-autonoma-de-yucatan.svg"
+                alt="Universidad Autónoma de Yucatán" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Universidad Autónoma de Yucatán</p>
           </li>
           <li class="sponsor animate-on-scroll">
             <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/proasecal.png" alt="Proasecal" loading="lazy" />
+              <img class="sponsor__logo" src="assets/sponsors/institutions/unicartagena.png"
+                alt="Universidad de Cartagena" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Universidad de Cartagena</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/institutions/universidad-del-sinu.jpeg"
+                alt="Universidad del Sinú — Elías Bechara Zainúm" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Universidad del Sinú</p>
+          </li>
+          </ul>
+        </div>
+
+        <div class="sponsors__group">
+          <h2 class="section-heading" id="commercial-heading">Muestra Comercial</h2>
+          <p class="sponsors__intro">
+            La muestra comercial se instala en el Salón de eventos y exposiciones CICAG y permanece
+            activa durante las pausas de café de ambas jornadas.
+          </p>
+          <ul class="sponsors__grid" role="list">
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/bioguard.png"
+                alt="Bioguard Health Solutions" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Bioguard Health Solutions</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/biomerieux.jpeg"
+                alt="bioMérieux" loading="lazy" />
+            </div>
+            <p class="sponsor__name">bioMérieux</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--tall">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/biometrika.jpeg"
+                alt="Biometrika S.A.S." loading="lazy" />
+            </div>
+            <p class="sponsor__name">Biometrika</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/cirumedics.jpeg"
+                alt="Cirumedics — Calidad Innovadores" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Cirumedics</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame">
+              <img class="sponsor__logo" src="assets/sponsors/companies/proasecal.png"
+                alt="Proasecal" loading="lazy" />
             </div>
             <p class="sponsor__name">Proasecal</p>
           </li>
           <li class="sponsor animate-on-scroll">
-            <div class="sponsor__frame sponsor__frame--tall">
-              <img class="sponsor__logo" src="assets/sponsors/universidad-autonoma-de-tucuman.svg"
-                alt="Universidad Autónoma de Tucumán" loading="lazy" />
+            <div class="sponsor__frame sponsor__frame--wide">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/quality-consulting.jpeg"
+                alt="Quality Consulting" loading="lazy" />
             </div>
-            <p class="sponsor__name">Universidad Autónoma de Tucumán</p>
+            <p class="sponsor__name">Quality Consulting</p>
           </li>
           <li class="sponsor animate-on-scroll">
-            <div class="sponsor__frame">
-              <img class="sponsor__logo" src="assets/sponsors/unicartagena.png" alt="Universidad de Cartagena"
-                loading="lazy" />
+            <div class="sponsor__frame sponsor__frame--tall">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/sigmaqc.jpeg"
+                alt="SigmaQC" loading="lazy" />
             </div>
-            <p class="sponsor__name">Universidad de Cartagena</p>
+            <p class="sponsor__name">SigmaQC</p>
           </li>
-        </ul>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--wide">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/technomedical.jpeg"
+                alt="Technomedical — Tecnología Diagnóstica" loading="lazy" />
+            </div>
+            <p class="sponsor__name">Technomedical</p>
+          </li>
+          <li class="sponsor animate-on-scroll">
+            <div class="sponsor__frame sponsor__frame--wide">
+              <img class="sponsor__logo sponsor__logo--opaque" src="assets/sponsors/companies/tenjolab.jpeg"
+                alt="TenjoLab — Equipment, Supplies and Technology" loading="lazy" />
+            </div>
+            <p class="sponsor__name">TenjoLab</p>
+          </li>
+          </ul>
+        </div>
       </div>
     </section>
 

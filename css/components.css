@@ -809,6 +809,10 @@
   background-color: var(--color-bg-base);
 }
 
+.sponsors__group + .sponsors__group {
+  margin-top: var(--space-20);
+}
+
 .sponsors__intro {
   max-width: 62ch;
   margin-top: calc(-1 * var(--space-2));
@@ -875,6 +879,13 @@
   /* Duotono de marca: negros → azul profundo, claros → azul pálido. */
   filter: url('#sponsor-duotone');
   transition: filter var(--duration-normal) var(--ease-out);
+}
+
+/* Logos con fondo blanco opaco (JPEG o PNG sin transparencia): el filtro
+   conserva el blanco y `multiply` lo funde con el degradado del recuadro. */
+.sponsor__logo--opaque {
+  filter: url('#sponsor-duotone-opaque');
+  mix-blend-mode: multiply;
 }
 
 /* Al pasar el cursor se recupera el color original de la marca. */
