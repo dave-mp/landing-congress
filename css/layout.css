@@ -171,19 +171,12 @@ main {
 }
 
 @media (min-width: 1024px) {
-  /* Ancho acotado para que los recuadros no crezcan de más. Ambas rejillas
-     comparten el mismo ancho de columna (~262px) para que todas las
-     tarjetas midan igual. */
+  /* Ancho acotado para que los recuadros no crezcan de más. Ambos grupos
+     (9 logos cada uno) quedan en rejillas iguales de 3×3. */
   .sponsors__grid {
     grid-template-columns: repeat(3, 1fr);
     max-width: 834px;
     margin-inline: auto;
-  }
-
-  /* 8 aliados → dos filas iguales de 4, sin ítems huérfanos. */
-  .sponsors__grid--wide {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1120px;
   }
 }
 
