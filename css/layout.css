@@ -231,22 +231,30 @@ html {
 }
 
 /* ── Sponsors ── */
+/* Flex en lugar de grid para que una fila final incompleta quede centrada.
+   El ancho de cada logo se deriva de --sponsor-cols y del espacio entre columnas. */
 .sponsors__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8) var(--space-6);
+  --sponsor-cols: 2;
+  --sponsor-gap: var(--space-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-8) var(--sponsor-gap);
   margin-top: var(--space-12);
 }
 
+.sponsors__grid > .sponsor {
+  flex: 0 0 calc((100% - (var(--sponsor-cols) - 1) * var(--sponsor-gap)) / var(--sponsor-cols));
+  min-width: 0;
+}
+
 @media (min-width: 768px) {
-  .sponsors__grid { grid-template-columns: repeat(3, 1fr); }
+  .sponsors__grid { --sponsor-cols: 3; }
 }
 
 @media (min-width: 1024px) {
-  /* Ancho acotado para que los recuadros no crezcan de más. Ambos grupos
-     (9 logos cada uno) quedan en rejillas iguales de 3×3. */
+  /* Ancho acotado para que los recuadros no crezcan de más. */
   .sponsors__grid {
-    grid-template-columns: repeat(3, 1fr);
     max-width: 834px;
     margin-inline: auto;
   }
