@@ -1,0 +1,567 @@
+/* ════════════════════════════════════════════════════════════════
+   PANTALLA DE CORTINILLA — pantalla.html
+   Hoja autónoma: solo depende de reset.css y tokens.css. No comparte
+   clases con el sitio porque aquí todo se mide contra la altura de la
+   pantalla (nunca hay scroll) y el tema está fijo en oscuro.
+   ════════════════════════════════════════════════════════════════ */
+
+.cover {
+  /* Ritmo del latido. Lo comparten el barrido del ECG, el halo del
+     medallón, el logo de la Universidad y el punto del separador: todos
+     laten al mismo compás, con desfases distintos. */
+  --beat: 5.5s;
+
+  display: grid;
+  /* `minmax(0, 1fr)` es imprescindible: con una columna `auto` la rejilla
+     se dimensiona al min-content de sus hijos y la cinta de logos
+     (`width: max-content`) estiraría el <body> varios miles de píxeles. */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  height: 100svh;
+  overflow: hidden;
+  /* Es una pantalla de proyección: no se selecciona ni se arrastra nada. */
+  user-select: none;
+  -webkit-user-select: none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #121b36 0%, transparent 60%),
+    linear-gradient(135deg, #0a0e1a 0%, #0d1529 50%, #12102a 100%);
+}
+
+.cover.is-idle { cursor: none; }
+
+/* ════════════════════════════════════════
+   FONDO
+   ════════════════════════════════════════ */
+.cover__bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cover__aurora {
+  position: absolute;
+  width: 55vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+.cover__aurora--a {
+  top: -18vw;
+  left: -12vw;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.30) 0%, transparent 70%);
+  animation: cover-drift-a 26s var(--ease-in-out) infinite alternate;
+}
+
+.cover__aurora--b {
+  right: -16vw;
+  bottom: -22vw;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.26) 0%, transparent 70%);
+  animation: cover-drift-b 32s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes cover-drift-a {
+  from { transform: translate3d(0, 0, 0)        scale(1); }
+  to   { transform: translate3d(7vw, 5vh, 0)    scale(1.14); }
+}
+
+@keyframes cover-drift-b {
+  from { transform: translate3d(0, 0, 0)        scale(1.1); }
+  to   { transform: translate3d(-6vw, -6vh, 0)  scale(1); }
+}
+
+/* Hélices de ADN a los costados, subiendo despacio en bucle. La animación
+   recorre exactamente el alto del motivo, así el salto es invisible. */
+.cover__helix {
+  position: absolute;
+  height: 150svh;
+  width: auto;
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.cover__helix--left {
+  top: 0;
+  left: 3vw;
+  animation: cover-helix-up 30s linear infinite;
+}
+
+.cover__helix--right {
+  top: 0;
+  right: 3vw;
+  animation: cover-helix-up 38s linear infinite reverse;
+}
+
+@keyframes cover-helix-up {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50svh); }
+}
+
+/* ════════════════════════════════════════
+   ESCENARIO
+   ════════════════════════════════════════ */
+.cover__stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(var(--space-6), 5svh, var(--space-16));
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(var(--space-6), 5svh, var(--space-12)) var(--space-6);
+  text-align: center;
+}
+
+/* ── Lockup: Summit + Universidad ── */
+.cover__lockup {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+/* El trazo de ECG cruza la pantalla por detrás del lockup. */
+.cover__ecg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 118vw;
+  height: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cover__ecg-base {
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+  opacity: 0.18;
+}
+
+/* Un único guion de 80 unidades sobre un patrón de 1200 recorre el trazo
+   (normalizado a 1000): entra, cruza los dos logos y deja una pausa antes
+   del latido siguiente. El ciclo dura un patrón completo, por eso empalma
+   sin salto. */
+.cover__ecg-sweep {
+  stroke: var(--color-accent-2);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 80 1120;
+  filter: drop-shadow(0 0 6px var(--color-accent-2));
+  animation: cover-ecg-sweep var(--beat) linear infinite;
+}
+
+@keyframes cover-ecg-sweep {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -1200; }
+}
+
+.cover__marks {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(var(--space-6), 3.5vw, var(--space-12));
+  /* Respiración muy lenta: da vida al conjunto sin llamar la atención. */
+  animation: cover-breathe 11s var(--ease-in-out) infinite alternate;
+}
+
+@keyframes cover-breathe {
+  from { transform: scale(1); }
+  to   { transform: scale(1.022); }
+}
+
+.cover__medallion {
+  position: relative;
+  display: grid;
+  place-items: center;
+  /* El relleno se deriva del tamaño del medallón: en porcentaje se mediría
+     contra el ancho de .cover__marks, no contra el propio círculo. */
+  --medallion-size: clamp(132px, 26svh, 300px);
+  width: var(--medallion-size);
+  aspect-ratio: 1;
+  padding: calc(var(--medallion-size) * 0.09);
+  border-radius: var(--radius-full);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f3f6fc 100%);
+  border: 1px solid var(--color-border);
+  /* El halo se enciende al paso del latido. */
+  animation: cover-medallion-glow var(--beat) var(--ease-in-out) infinite;
+}
+
+@keyframes cover-medallion-glow {
+  0%, 100% { box-shadow: var(--shadow-lg), 0 0 60px rgba(59, 130, 246, 0.20); }
+  26%      { box-shadow: var(--shadow-lg), 0 0 120px rgba(6, 182, 212, 0.48); }
+  60%      { box-shadow: var(--shadow-lg), 0 0 60px rgba(59, 130, 246, 0.20); }
+}
+
+/* Anillo orbital: un degradado cónico recortado a 3px de grosor. */
+.cover__medallion::after {
+  content: '';
+  position: absolute;
+  inset: clamp(-14px, -1.6svh, -8px);
+  border-radius: 50%;
+  background: conic-gradient(from 0turn,
+      transparent 0 58%,
+      rgba(6, 182, 212, 0.55) 78%,
+      var(--color-accent) 92%,
+      transparent 98%);
+  -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+          mask: radial-gradient(closest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+  animation: cover-orbit 9s linear infinite;
+}
+
+@keyframes cover-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Sin esto <picture> sería el elemento de rejilla y, con `justify-items:
+   center`, se dimensionaría a max-content en vez de llenar el medallón. */
+.cover__medallion picture {
+  display: contents;
+}
+
+.cover__medallion img {
+  width: 100%;
+  height: auto;
+}
+
+/* Separador con un punto que viaja del Summit a la Universidad, al compás
+   del latido: visualmente es el pulso saltando de una marca a la otra. */
+.cover__rule {
+  position: relative;
+  flex-shrink: 0;
+  width: 1px;
+  height: clamp(72px, 17svh, 190px);
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      var(--color-border-strong) 20%,
+      var(--color-border-strong) 80%,
+      transparent 100%);
+}
+
+.cover__rule::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--color-accent-2);
+  box-shadow: 0 0 14px var(--color-accent-2);
+  animation: cover-rule-dot var(--beat) var(--ease-in-out) infinite;
+}
+
+@keyframes cover-rule-dot {
+  0%        { top: 14%;  opacity: 0; }
+  22%       { opacity: 1; }
+  55%       { top: 86%;  opacity: 1; }
+  70%, 100% { top: 86%;  opacity: 0; }
+}
+
+.cover__org {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.cover__org-logo {
+  --org-logo-h: clamp(40px, 8svh, 92px);
+  height: var(--org-logo-h);
+  /* Ancho derivado del viewBox del logotipo (144.41 × 43.88). */
+  width: calc(var(--org-logo-h) * 144.41 / 43.88);
+  color: var(--color-text-primary);
+  /* El resplandor llega un instante después que al medallón: el latido
+     cruza primero el Summit y luego la Universidad. */
+  animation: cover-org-glow var(--beat) var(--ease-in-out) infinite;
+}
+
+@keyframes cover-org-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+  48%      { filter: drop-shadow(0 0 18px rgba(6, 182, 212, 0.55)); }
+  80%      { filter: drop-shadow(0 0 0 transparent); }
+}
+
+.cover__org-program {
+  max-width: 24ch;
+  font-size: clamp(var(--font-size-xs), 1.5svh, var(--font-size-sm));
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  color: var(--color-text-secondary);
+  text-wrap: balance;
+}
+
+/* ── Identidad del evento ── */
+/* `align-items: center` en .cover__stage dimensiona a los hijos por su
+   contenido: sin este tope el texto se sale por el lado en pantallas
+   estrechas en vez de partirse. */
+.cover__text {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(var(--space-3), 1.8svh, var(--space-5));
+}
+
+.cover__eyebrow {
+  font-size: clamp(var(--font-size-xs), 1.7svh, var(--font-size-base));
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-2);
+}
+
+.cover__title {
+  max-width: 24ch;
+  /* Acotado también por la altura: en proyectores 4:3 el titular no debe
+     empujar la banda de logos fuera de la pantalla. */
+  font-size: clamp(1.6rem, min(4.6vw, 7.5svh), 4rem);
+  font-weight: var(--font-weight-black);
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--line-height-tight);
+  text-wrap: balance;
+}
+
+.cover__title-line {
+  display: block;
+}
+
+.cover__title-accent {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cover__meta {
+  font-size: clamp(var(--font-size-sm), 2.2svh, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  text-wrap: balance;
+}
+
+/* ════════════════════════════════════════
+   BANDA DE LOGOS EN DESFILE
+   ════════════════════════════════════════ */
+.cover__band {
+  /* Las placas son apaisadas pero no en exceso: muchos escudos son
+     cuadrados y es la altura la que acaba limitándolos. */
+  --mq-logo-h: clamp(52px, 9.5svh, 100px);
+  --mq-logo-w: calc(var(--mq-logo-h) * 2);
+  --mq-gap: clamp(var(--space-3), 1.4vw, var(--space-6));
+
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  padding-block: clamp(var(--space-4), 2.4svh, var(--space-8));
+  border-top: 1px solid var(--color-border);
+  background-color: rgba(10, 14, 26, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cover__band-label {
+  margin-bottom: clamp(var(--space-3), 1.6svh, var(--space-5));
+  padding-inline: var(--space-4);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-widest);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.cover__marquee {
+  min-width: 0;
+  overflow: hidden;
+  /* Los logos se desvanecen en los bordes en vez de cortarse en seco. */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+
+/* Estado base (sin JavaScript o con «reducir movimiento»): cuadrícula
+   centrada y quieta, con todos los logos visibles. */
+.cover__marquee-track {
+  display: flex;
+  justify-content: center;
+}
+
+.cover__marquee-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mq-gap);
+}
+
+/* Estado en desfile. js/screen-cover.js clona el grupo hasta cubrir dos
+   pantallas y fija --mq-copies y --mq-duration; el desplazamiento de un
+   grupo exacto (-100% / nº de copias) hace que el bucle empalme sin salto.
+
+   Son dos fases: `measuring` aplica la fila en una sola línea para poder
+   medir su ancho real, y `running` arranca ya la animación. */
+.cover__marquee-track[data-marquee] {
+  --mq-copies: 2;
+  --mq-duration: 46s;
+  width: max-content;
+  justify-content: flex-start;
+}
+
+.cover__marquee-track[data-marquee] .cover__marquee-group {
+  flex-wrap: nowrap;
+  /* El hueco que separa un grupo del siguiente va dentro del grupo: así el
+     ancho medido es justo lo que desplaza cada ciclo y el bucle empalma. */
+  padding-right: var(--mq-gap);
+}
+
+.cover__marquee-track[data-marquee="running"] {
+  animation: cover-marquee var(--mq-duration) linear infinite;
+  will-change: transform;
+}
+
+@keyframes cover-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-100% / var(--mq-copies)), 0, 0); }
+}
+
+.cover__logo {
+  flex: 0 0 auto;
+  /* Flex y no rejilla: con una pista `auto` el porcentaje de la imagen no
+     puede resolverse y la pista crece hasta el tamaño intrínseco del logo,
+     que se derrama fuera de la placa. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--mq-logo-w);
+  height: var(--mq-logo-h);
+  min-height: 0;
+  overflow: hidden;
+  padding: var(--space-2) var(--space-3);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f3f6fc 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Medidas fijas + `contain`: el logo se ajusta al recuadro en vez de
+   estirarlo, así todas las placas conservan la misma proporción. */
+.cover__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Logos con fondo blanco opaco (JPEG o PNG sin transparencia): `multiply`
+   funde ese fondo con el degradado de la placa. */
+.cover__logo-img--opaque {
+  mix-blend-mode: multiply;
+}
+
+/* ════════════════════════════════════════
+   CONTROLES DEL OPERADOR
+   ════════════════════════════════════════ */
+/* Arriba a la derecha, fuera de la banda de logos. */
+.cover__controls {
+  position: fixed;
+  right: var(--space-5);
+  top: var(--space-5);
+  z-index: var(--z-overlay);
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+.cover.is-idle .cover__controls {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cover__ctrl {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background-color: rgba(26, 34, 53, 0.8);
+  color: var(--color-text-secondary);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.cover__ctrl:hover,
+.cover__ctrl:focus-visible {
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+}
+
+.cover__ctrl svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* El icono alterna entre «entrar» y «salir» de pantalla completa. */
+.cover__ctrl-collapse { display: none; }
+
+.cover.is-fullscreen .cover__ctrl-expand   { display: none; }
+.cover.is-fullscreen .cover__ctrl-collapse { display: block; }
+
+/* ════════════════════════════════════════
+   ADAPTACIONES
+   ════════════════════════════════════════ */
+
+/* Vertical o pantallas estrechas: el lockup se apila y el separador pasa a
+   ser una línea horizontal (sin el punto viajero, que solo tiene sentido en
+   el eje vertical). */
+@media (max-width: 720px), (max-aspect-ratio: 4 / 5) {
+  .cover__marks {
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .cover__rule {
+    width: clamp(120px, 40vw, 220px);
+    height: 1px;
+    background: linear-gradient(to right,
+        transparent 0%,
+        var(--color-border-strong) 20%,
+        var(--color-border-strong) 80%,
+        transparent 100%);
+  }
+
+  .cover__rule::after { display: none; }
+
+  .cover__helix { display: none; }
+}
+
+/* Pantallas muy bajas (portátiles, proyectores 4:3 recortados): se recortan
+   los textos accesorios para que la banda de logos siga entrando. */
+@media (max-height: 560px) {
+  .cover__org-program,
+  .cover__meta {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover__aurora,
+  .cover__helix,
+  .cover__marks,
+  .cover__medallion,
+  .cover__medallion::after,
+  .cover__org-logo,
+  .cover__rule::after,
+  .cover__ecg-sweep,
+  .cover__marquee-track {
+    animation: none !important;
+  }
+
+  /* Sin barrido no hay latido que seguir: el trazo queda como línea fija. */
+  .cover__ecg-sweep { display: none; }
+}

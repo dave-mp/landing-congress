@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--
+  PANTALLA DE CORTINILLA
+  ══════════════════════
+  Pantalla de relleno para proyectar entre ponencias: identidad del Summit
+  junto a la de la Universidad y los logos de aliados y muestra comercial
+  desfilando al pie. No tiene scroll, enlaces ni interacción: se abre, se
+  pone en pantalla completa y se deja en bucle.
+
+  Ruta pública: /pantalla.html
+
+  El tema se fija en oscuro (`data-theme="dark"`): es una pantalla de
+  proyección en sala a oscuras, no sigue la preferencia del sistema. Por eso
+  no se carga css/theme.css.
+-->
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cortinilla · 1er Summit Internacional en Enfermedades Infecciosas &amp; Medicina Crítica</title>
+  <!-- Pantalla de servicio: pública para poder abrirla desde cualquier equipo
+       de la sala, pero fuera de los buscadores. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description"
+    content="Pantalla de cortinilla del 1er Summit Internacional en Enfermedades Infecciosas y Medicina Crítica, para proyectar entre ponencias." />
+  <link rel="icon" href="assets/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/icon-192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/screen-cover.css" />
+</head>
+
+<body class="cover">
+
+  <!-- ══════════════════════════════════════════
+       FONDO: auroras a la deriva y dos hélices de ADN
+       ══════════════════════════════════════════ -->
+  <div class="cover__bg" aria-hidden="true">
+    <span class="cover__aurora cover__aurora--a"></span>
+    <span class="cover__aurora cover__aurora--b"></span>
+
+    <svg class="cover__helix cover__helix--left" viewBox="0 0 120 500" fill="none"
+      xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <path d="M20,10 C60,60 60,100 20,150 C-20,200 -20,240 20,290 C60,340 60,380 20,430 C-20,480 -20,490 20,500"
+        stroke="#3b82f6" stroke-width="2" />
+      <path d="M100,10 C60,60 60,100 100,150 C140,200 140,240 100,290 C60,340 60,380 100,430 C140,480 140,490 100,500"
+        stroke="#8b5cf6" stroke-width="2" />
+      <line x1="20" y1="80" x2="100" y2="80" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="160" x2="100" y2="160" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="240" x2="100" y2="240" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="320" x2="100" y2="320" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="400" x2="100" y2="400" stroke="#06b6d4" stroke-width="1.5" opacity="0.6" />
+    </svg>
+
+    <svg class="cover__helix cover__helix--right" viewBox="0 0 120 500" fill="none"
+      xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <path d="M20,10 C60,60 60,100 20,150 C-20,200 -20,240 20,290 C60,340 60,380 20,430 C-20,480 -20,490 20,500"
+        stroke="#06b6d4" stroke-width="2" />
+      <path d="M100,10 C60,60 60,100 100,150 C140,200 140,240 100,290 C60,340 60,380 100,430 C140,480 140,490 100,500"
+        stroke="#3b82f6" stroke-width="2" />
+      <line x1="20" y1="120" x2="100" y2="120" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="200" x2="100" y2="200" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="280" x2="100" y2="280" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6" />
+      <line x1="20" y1="360" x2="100" y2="360" stroke="#8b5cf6" stroke-width="1.5" opacity="0.6" />
+    </svg>
+  </div>
+
+  <main class="cover__stage">
+
+    <!-- ══════════════════════════════════════════
+         LOCKUP: logo del Summit + logo de la Universidad
+         El trazo de ECG cruza por detrás; cada latido enciende primero el
+         medallón y luego el logo de la Universidad (ver css/screen-cover.css).
+         ══════════════════════════════════════════ -->
+    <div class="cover__lockup">
+
+      <svg class="cover__ecg" viewBox="0 0 1600 80" fill="none" xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true" focusable="false">
+        <!-- `pathLength` normaliza el trazo a 1000 unidades: así el guion que
+             viaja (stroke-dasharray) no depende de la geometría real. -->
+        <path class="cover__ecg-base" pathLength="1000"
+          d="M0,40 L170,40 L185,8 L200,72 L215,40 L470,40 L485,8 L500,72 L515,40 L770,40 L785,8 L800,72 L815,40 L1070,40 L1085,8 L1100,72 L1115,40 L1370,40 L1385,8 L1400,72 L1415,40 L1600,40" />
+        <path class="cover__ecg-sweep" pathLength="1000"
+          d="M0,40 L170,40 L185,8 L200,72 L215,40 L470,40 L485,8 L500,72 L515,40 L770,40 L785,8 L800,72 L815,40 L1070,40 L1085,8 L1100,72 L1115,40 L1370,40 L1385,8 L1400,72 L1415,40 L1600,40" />
+      </svg>
+
+      <div class="cover__marks">
+        <!-- El arte del logo del Summit está pensado para fondo blanco: sobre el
+             fondo oscuro sus siluetas azul marino se perderían, de ahí el
+             medallón claro (el mismo tratamiento que en el hero del sitio). -->
+        <div class="cover__medallion">
+          <picture>
+            <source srcset="assets/brand/summit-logo.webp" type="image/webp" />
+            <img src="assets/brand/summit-logo.png" width="880" height="674" fetchpriority="high"
+              alt="Logo del 1er Summit Internacional en Enfermedades Infecciosas &amp; Medicina Crítica" />
+          </picture>
+        </div>
+
+        <span class="cover__rule"></span>
+
+        <div class="cover__org">
+          <!-- El texto del logotipo usa currentColor: sobre fondo oscuro se
+               dibuja claro y el sello conserva su naranja institucional. -->
+          <svg class="cover__org-logo" viewBox="0 0 144.41 43.88" role="img"
+            aria-label="Universidad de San Buenaventura Cartagena">
+            <use href="assets/organizer/usb-logo.svg#usb-logo" />
+          </svg>
+          <p class="cover__org-program">Programa de Bacteriología y Laboratorio Clínico</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         IDENTIDAD DEL EVENTO
+         ══════════════════════════════════════════ -->
+    <div class="cover__text">
+      <p class="cover__eyebrow">1er Summit Internacional</p>
+      <!-- El corte de línea es explícito: en una pantalla de proyección el
+           titular debe partirse siempre en el mismo sitio. -->
+      <h1 class="cover__title">
+        <span class="cover__title-line">Enfermedades <span class="cover__title-accent">Infecciosas</span></span>
+        <span class="cover__title-line">&amp; Medicina Crítica</span>
+      </h1>
+      <p class="cover__meta">
+        30 y 31 de octubre de 2026 · Auditorio Torreón · Cartagena de Indias
+      </p>
+    </div>
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       BANDA DE LOGOS EN DESFILE
+       La lista `.cover__marquee-group` es la única fuente de verdad: para
+       añadir o quitar un logo se edita aquí y nada más. js/screen-cover.js la
+       clona las veces que haga falta para llenar la pantalla y calcula la
+       duración del bucle, de modo que la velocidad sea la misma en cualquier
+       resolución. Sin JavaScript los logos se ven igual, en cuadrícula quieta.
+       ══════════════════════════════════════════ -->
+  <footer class="cover__band">
+    <p class="cover__band-label">Aliados Estratégicos · Muestra Comercial</p>
+
+    <div class="cover__marquee">
+      <div class="cover__marquee-track">
+        <ul class="cover__marquee-group" role="list">
+          <li class="cover__logo">
+            <img src="assets/sponsors/institutions/colegio-nacional-de-bacteriologia.png"
+              alt="Colegio Nacional de Bacteriología (CNB)" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque"
+              src="assets/sponsors/institutions/colegio-profesional-de-laboratorio-clinico-bolivar.jpeg"
+              alt="Colegio de Profesionales del Laboratorio Clínico de Bolívar" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/institutions/uninunez.svg"
+              alt="Corporación Universitaria Rafael Núñez" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/institutions/dadis.png"
+              alt="DADIS — Departamento Administrativo Distrital de Salud de Cartagena" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/institutions/opes.png"
+              alt="OPES — Organización Pro Educación Superior" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/institutions/universidad-autonoma-de-yucatan.svg"
+              alt="Universidad Autónoma de Yucatán" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/institutions/unicartagena.png"
+              alt="Universidad de Cartagena" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/institutions/universidad-del-sinu.jpeg"
+              alt="Universidad del Sinú — Elías Bechara Zainúm" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/annar.png"
+              alt="Annar Health Technologies" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/bioguard.png"
+              alt="Bioguard Health Solutions" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/biomerieux.jpeg"
+              alt="bioMérieux" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/cirumedics.jpeg"
+              alt="Cirumedics — Calidad Innovadores" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/companies/colcan-laboratorio-clinico.png"
+              alt="Colcan Laboratorio Clínico" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/companies/laboratorio-clinico-santa-lucia.png"
+              alt="Laboratorio Clínico Santa Lucía" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img src="assets/sponsors/companies/proasecal.png" alt="Proasecal" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/quality-consulting.jpeg"
+              alt="Quality Consulting" decoding="async" />
+          </li>
+          <li class="cover__logo">
+            <img class="cover__logo-img--opaque" src="assets/sponsors/companies/technomedical.png"
+              alt="Technomedical — Tecnología Diagnóstica" decoding="async" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Controles del operador: se desvanecen con el puntero quieto. -->
+  <div class="cover__controls">
+    <button class="cover__ctrl" type="button" data-cover-fullscreen aria-label="Pantalla completa">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        aria-hidden="true" focusable="false">
+        <path class="cover__ctrl-expand" d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3m13 5h3a2 2 0 0 0 2-2v-3" />
+        <path class="cover__ctrl-collapse" d="M3 8h3a2 2 0 0 0 2-2V3m13 5h-3a2 2 0 0 1-2-2V3M3 16h3a2 2 0 0 1 2 2v3m13-5h-3a2 2 0 0 0-2 2v3" />
+      </svg>
+    </button>
+  </div>
+
+  <script type="module" src="js/screen-cover.js"></script>
+</body>
+
+</html>
